@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 
-@SpringBootApplication(scanBasePackages = { "com.icthh.xm", "com.icthh.xm.tmf.ms.prepaybalance" })
+@SpringBootApplication(scanBasePackages = {"com.icthh.xm", "com.icthh.xm.tmf.ms.prepaybalance"})
 @EnableConfigurationProperties({ApplicationProperties.class})
 public class PrepaybalanceApp {
 
@@ -96,6 +96,6 @@ public class PrepaybalanceApp {
             configServerStatus = "Not found or not setup for this application";
         }
         log.info("\n----------------------------------------------------------\n\t" +
-                "Config Server: \t{}\n----------------------------------------------------------", configServerStatus);
+            "Config Server: \t{}\n----------------------------------------------------------", configServerStatus);
     }
 }

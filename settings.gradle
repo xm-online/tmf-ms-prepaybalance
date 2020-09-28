@@ -12,4 +12,4 @@ pluginManagement {
      }
 }
 
-rootProject.name = "prepaybalance"
+rootProject.name = "tmf-ms-prepaybalance"

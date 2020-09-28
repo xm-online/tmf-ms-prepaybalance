@@ -175,3 +175,6 @@ jhipster:
 # ===================================================================
 
 # application:
+base-package: com.icthh.xm.tmf.ms.prepaybalance
+xm-config:
+  enabled: false

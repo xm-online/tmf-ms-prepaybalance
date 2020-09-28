@@ -6,7 +6,6 @@ buildscript {
         maven { url "https://repo.spring.io/plugins-release" }
     }
     dependencies {
-        //jhipster-needle-gradle-buildscript-dependency - JHipster will add additional gradle build script plugins here
     }
 }
 
@@ -23,7 +22,7 @@ plugins {
     id "net.ltgt.apt"
     id "org.sonarqube"
     id "io.spring.nohttp"
-    //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
+    id "war"
 }
 
 group = "com.icthh.xm.tmf.ms.prepaybalance"
@@ -31,8 +30,8 @@ version = "0.0.1-SNAPSHOT"
 
 description = ""
 
-sourceCompatibility=1.8
-targetCompatibility=1.8
+sourceCompatibility=11
+targetCompatibility=11
 assert System.properties["java.specification.version"] == "1.8" || "11" || "12" || "13" || "14"
 
 apply from: "gradle/docker.gradle"
@@ -62,6 +61,21 @@ if (project.hasProperty("gae")) {
     appengineStage.dependsOn thinResolve
 }
 
+apply plugin: 'checkstyle'
+checkstyle {
+    toolVersion = "7.6.1"
+    ignoreFailures = true
+    configFile = rootProject.file('./qa/checkstyle.xml')
+}
+
+apply plugin: 'pmd'
+pmd {
+    rulePriority = 3
+    toolVersion = '5.5.4'
+    ignoreFailures = true
+    ruleSetFiles = files("./qa/pmd.xml")
+}
+
 if (project.hasProperty("zipkin")) {
     apply from: "gradle/zipkin.gradle"
 }
@@ -88,6 +102,15 @@ springBoot {
     mainClassName = "com.icthh.xm.tmf.ms.prepaybalance.PrepaybalanceApp"
 }
 
+bootWar {
+    mainClassName = 'com.icthh.xm.tmf.ms.prepaybalance.PrepaybalanceApp'
+    manifest {
+        attributes(
+            "Implementation-Version": archiveVersion
+        )
+    }
+}
+
 test {
     useJUnitPlatform()
     exclude "**/*IT*", "**/*IntTest*"
@@ -95,10 +118,12 @@ test {
     testLogging {
         events 'FAILED', 'SKIPPED'
     }
-    // uncomment if the tests reports are not generated
-    // see https://github.com/jhipster/generator-jhipster/pull/2771 and https://github.com/jhipster/generator-jhipster/pull/4484
-    // ignoreFailures true
-    reports.html.enabled = false
+    reports.html.enabled = true
+    testLogging {
+        events = ["passed", "failed", "skipped", "standardOut", "standardError"]
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
 }
 
 task integrationTest(type: Test) {
@@ -111,11 +136,12 @@ task integrationTest(type: Test) {
         events 'FAILED', 'SKIPPED'
     }
 
-
-    // uncomment if the tests reports are not generated
-    // see https://github.com/jhipster/generator-jhipster/pull/2771 and https://github.com/jhipster/generator-jhipster/pull/4484
-    // ignoreFailures true
-    reports.html.enabled = false
+    reports.html.enabled = true
+    testLogging {
+        events = ["passed", "failed", "skipped", "standardOut", "standardError"]
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
 }
 
 check.dependsOn integrationTest
@@ -164,6 +190,12 @@ repositories {
 }
 
 dependencies {
+
+    compile "org.projectlombok:lombok:${lombok_version}"
+    annotationProcessor "org.projectlombok:lombok:${lombok_version}"
+    implementation "com.icthh.xm.commons:xm-commons-logging-web:${xm_commons_version}"
+    implementation "com.icthh.xm.commons:xm-commons-security:${xm_commons_version}"
+
     // import JHipster dependencies BOM
     if (!project.hasProperty("gae")) {
         implementation platform("io.github.jhipster:jhipster-dependencies:${jhipster_dependencies_version}")
@@ -223,6 +255,8 @@ dependencies {
     testImplementation "com.tngtech.archunit:archunit-junit5-api:${archunit_junit5_version}"
     testRuntimeOnly "com.tngtech.archunit:archunit-junit5-engine:${archunit_junit5_version}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+    testCompileOnly "org.projectlombok:lombok:${lombok_version}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombok_version}"
 }
 
 if (project.hasProperty("gae")) {
@@ -235,6 +269,9 @@ if (project.hasProperty("gae")) {
         }
     }
     bootJar.dependsOn = [createPom]
+}
+
+task stage(dependsOn: 'bootWar') {
 }
 
 task cleanResources(type: Delete) {

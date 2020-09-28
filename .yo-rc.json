@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.icthh.xm.tmf.ms.prepaybalance"
+    },
+    "jhipsterVersion": "6.10.1",
+    "applicationType": "microservice",
+    "baseName": "prepaybalance",
+    "packageName": "com.icthh.xm.tmf.ms.prepaybalance",
+    "packageFolder": "com/icthh/xm/tmf/ms/prepaybalance",
+    "serverPort": "8718",
+    "authenticationType": "uaa",
+    "uaaBaseName": "uaa",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "consul",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NzVhOTU2MWU0YWY4OTIxODQyNzhhY2Y0NDgzZTYyMjlhMjZhZmEyMGRlZWU3NDk2NmE4YzM3ODBlYjNkMWI4NWYxODZjMjIxZThiMWNhMDk2MDE1Y2E5ZmNlYzlhYWY3NTVmMzQ5YjdkNjIxYTg4ZWVkNWNjNmExNzZjZTFlNDU=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1601291673931,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

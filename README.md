@@ -16,6 +16,14 @@ To start your application in the dev profile, run:
 
 For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
 
+### Doing API-First development using openapi-generator
+
+[OpenAPI-Generator]() is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
+
+```bash
+./gradlew openApiGenerate
+```
+
 ## Building for production
 
 ### Packaging as jar

@@ -1,7 +1,10 @@
 package com.icthh.xm.tmf.ms.prepaybalance.client;
 
-import java.lang.annotation.*;
-
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.FeignClientsConfiguration;
 import org.springframework.core.annotation.AliasFor;
@@ -17,7 +20,7 @@ public @interface AuthorizedUserFeignClient {
 
     /**
      * A custom {@code @Configuration} for the feign client.
-     *
+     * <p>
      * Can contain override {@code @Bean} definition for the pieces that make up the client, for instance {@link
      * feign.codec.Decoder}, {@link feign.codec.Encoder}, {@link feign.Contract}.
      *

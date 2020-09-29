@@ -2,7 +2,6 @@ package com.icthh.xm.tmf.ms.prepaybalance.config;
 
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.zalando.problem.ProblemModule;
@@ -13,6 +12,7 @@ public class JacksonConfiguration {
 
     /**
      * Support for Java date and time API.
+     *
      * @return the corresponding Jackson module.
      */
     @Bean

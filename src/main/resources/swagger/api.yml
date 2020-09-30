@@ -1458,7 +1458,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BalanceDeductBody'
+              $ref: '#/components/schemas/BalanceDeductRequest'
         required: true
       responses:
         201:
@@ -1894,9 +1894,6 @@ components:
         - $ref: '#/components/schemas/BalanceUnreserveBody'
     BalanceDeductBody:
       required:
-        - balanceReserve
-        - id
-        - reason
         - relatedParty
       type: object
       properties:
@@ -1920,6 +1917,12 @@ components:
         the balance will be deducted directly.
       allOf:
         - $ref: '#/components/schemas/BalanceDeductBody'
+        - type: object
+          required:
+            - deductAmount
+          properties:
+            deductAmount:
+              $ref: '#/components/schemas/QuantityType'
     BalanceReserveRefType:
       required:
         - href
@@ -2089,9 +2092,6 @@ components:
       description: Information about a resource that holds information about the account
         that owns the bucket
     RelatedPartyRefType:
-      required:
-        - name
-        - role
       type: object
       properties:
         id:

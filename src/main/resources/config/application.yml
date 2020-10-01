@@ -157,7 +157,7 @@ jhipster:
   mail:
     from: prepaybalance@localhost
   swagger:
-    default-include-pattern: /api/.*
+    default-include-pattern: /(api|tmf-api)/.*
     title: prepaybalance API
     description: prepaybalance API documentation
     version: 0.0.1
@@ -165,7 +165,7 @@ jhipster:
     contact-name:
     contact-url:
     contact-email:
-    license: unlicensed
+    license:
     license-url:
 # ===================================================================
 # Application specific properties

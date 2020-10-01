@@ -23,6 +23,7 @@ public class ApplicationProperties {
     private String kafkaSystemQueue;
 
     private final Lep lep = new Lep();
+    private final Retry retry = new Retry();
 
     private List<String> tenantIgnoredPathList = Collections.emptyList();
 
@@ -31,5 +32,13 @@ public class ApplicationProperties {
     public static class Lep {
         private TenantScriptStorage tenantScriptStorage;
         private String lepResourcePathPattern;
+    }
+
+    @Getter
+    @Setter
+    private static class Retry {
+        private int maxAttempts;
+        private long delay;
+        private int multiplier;
     }
 }

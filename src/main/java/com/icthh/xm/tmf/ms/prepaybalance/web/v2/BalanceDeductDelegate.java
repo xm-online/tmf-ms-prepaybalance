@@ -1,11 +1,11 @@
-package com.icthh.xm.tmf.ms.prepaybalance.web;
+package com.icthh.xm.tmf.ms.prepaybalance.web.v2;
 
 import com.icthh.xm.commons.lep.LogicExtensionPoint;
 import com.icthh.xm.commons.lep.spring.LepService;
 import com.icthh.xm.commons.permission.annotation.PrivilegeDescription;
 import com.icthh.xm.tmf.ms.prepaybalance.lep.keyresolver.ProfileKeyResolver;
-import com.icthh.xm.tmf.ms.prepaybalance.web.api.BalanceDeductApiDelegate;
-import com.icthh.xm.tmf.ms.prepaybalance.web.api.model.BalanceDeductRequest;
+import com.icthh.xm.tmf.ms.prepaybalance.web.v2.api.BalanceDeductApiDelegate;
+import com.icthh.xm.tmf.ms.prepaybalance.web.v2.api.model.BalanceDeductRequest;
 import io.micrometer.core.annotation.Timed;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

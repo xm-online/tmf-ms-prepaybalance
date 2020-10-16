@@ -45,15 +45,15 @@ consumes:
 produces:
   - application/json;charset=utf-8
 tags:
-  - name: bucket
-  - name: topupBalance
-  - name: adjustBalance
-  - name: transferBalance
-  - name: reserveBalance
-  - name: accumulatedBalance
-  - name: balanceActionHistory
-  - name: notification listeners (client side)
-  - name: events subscription
+  - name: v4 bucket
+  - name: v4 topup balance
+  - name: v4 adjust balance
+  - name: v4 transfer balance
+  - name: v4 reserve balance
+  - name: v4 accumulated balance
+  - name: v4 balance action history
+  - name: v4 notification listeners
+  - name: v4 events subscription
 paths:
   "/bucket":
     get:
@@ -61,7 +61,7 @@ paths:
       summary: List or find Bucket objects
       description: This operation list or find Bucket entities
       tags:
-        - bucket
+        - v4 bucket
       parameters:
         - name: fields
           description: Comma-separated properties to be provided in response
@@ -127,7 +127,7 @@ paths:
       description: This operation retrieves a Bucket entity. Attribute selection is
         enabled for all first level attributes.
       tags:
-        - bucket
+        - v4 bucket
       parameters:
         - name: id
           description: Identifier of the Bucket
@@ -178,7 +178,7 @@ paths:
       summary: List or find TopupBalance objects
       description: This operation list or find TopupBalance entities
       tags:
-        - topupBalance
+        - v4 topup balance
       parameters:
         - name: fields
           description: Comma-separated properties to be provided in response
@@ -242,7 +242,7 @@ paths:
       summary: Creates a TopupBalance
       description: This operation creates a TopupBalance entity.
       tags:
-        - topupBalance
+        - v4 topup balance
       parameters:
         - name: topupBalance
           description: The TopupBalance to be created
@@ -285,7 +285,7 @@ paths:
       summary: Updates partially a TopupBalance
       description: This operation updates partially a TopupBalance entity.
       tags:
-        - topupBalance
+        - v4 topup balance
       parameters:
         - name: id
           description: Identifier of the TopupBalance
@@ -337,7 +337,7 @@ paths:
       description: This operation retrieves a TopupBalance entity. Attribute selection
         is enabled for all first level attributes.
       tags:
-        - topupBalance
+        - v4 topup balance
       parameters:
         - name: id
           description: Identifier of the TopupBalance
@@ -387,7 +387,7 @@ paths:
       summary: Deletes a TopupBalance
       description: This operation deletes a TopupBalance entity.
       tags:
-        - topupBalance
+        - v4 topup balance
       parameters:
         - name: id
           description: Identifier of the TopupBalance
@@ -431,7 +431,7 @@ paths:
       summary: List or find AdjustBalance objects
       description: This operation list or find AdjustBalance entities
       tags:
-        - adjustBalance
+        - v4 adjust balance
       parameters:
         - name: fields
           description: Comma-separated properties to be provided in response
@@ -495,7 +495,7 @@ paths:
       summary: Creates a AdjustBalance
       description: This operation creates a AdjustBalance entity.
       tags:
-        - adjustBalance
+        - v4 adjust balance
       parameters:
         - name: adjustBalance
           description: The AdjustBalance to be created
@@ -538,7 +538,7 @@ paths:
       summary: Updates partially a AdjustBalance
       description: This operation updates partially a AdjustBalance entity.
       tags:
-        - adjustBalance
+        - v4 adjust balance
       parameters:
         - name: id
           description: Identifier of the AdjustBalance
@@ -590,7 +590,7 @@ paths:
       description: This operation retrieves a AdjustBalance entity. Attribute selection
         is enabled for all first level attributes.
       tags:
-        - adjustBalance
+        - v4 adjust balance
       parameters:
         - name: id
           description: Identifier of the AdjustBalance
@@ -640,7 +640,7 @@ paths:
       summary: Deletes a AdjustBalance
       description: This operation deletes a AdjustBalance entity.
       tags:
-        - adjustBalance
+        - v4 adjust balance
       parameters:
         - name: id
           description: Identifier of the AdjustBalance
@@ -684,7 +684,7 @@ paths:
       summary: List or find TransferBalance objects
       description: This operation list or find TransferBalance entities
       tags:
-        - transferBalance
+        - v4 transfer balance
       parameters:
         - name: fields
           description: Comma-separated properties to be provided in response
@@ -748,7 +748,7 @@ paths:
       summary: Creates a TransferBalance
       description: This operation creates a TransferBalance entity.
       tags:
-        - transferBalance
+        - v4 transfer balance
       parameters:
         - name: transferBalance
           description: The TransferBalance to be created
@@ -791,7 +791,7 @@ paths:
       summary: Updates partially a TransferBalance
       description: This operation updates partially a TransferBalance entity.
       tags:
-        - transferBalance
+        - v4 transfer balance
       parameters:
         - name: id
           description: Identifier of the TransferBalance
@@ -843,7 +843,7 @@ paths:
       description: This operation retrieves a TransferBalance entity. Attribute selection
         is enabled for all first level attributes.
       tags:
-        - transferBalance
+        - v4 transfer balance
       parameters:
         - name: id
           description: Identifier of the TransferBalance
@@ -893,7 +893,7 @@ paths:
       summary: Deletes a TransferBalance
       description: This operation deletes a TransferBalance entity.
       tags:
-        - transferBalance
+        - v4 transfer balance
       parameters:
         - name: id
           description: Identifier of the TransferBalance
@@ -937,7 +937,7 @@ paths:
       summary: List or find ReserveBalance objects
       description: This operation list or find ReserveBalance entities
       tags:
-        - reserveBalance
+        - v4 reserve balance
       parameters:
         - name: fields
           description: Comma-separated properties to be provided in response
@@ -1001,7 +1001,7 @@ paths:
       summary: Creates a ReserveBalance
       description: This operation creates a ReserveBalance entity.
       tags:
-        - reserveBalance
+        - v4 reserve balance
       parameters:
         - name: reserveBalance
           description: The ReserveBalance to be created
@@ -1044,7 +1044,7 @@ paths:
       summary: Updates partially a ReserveBalance
       description: This operation updates partially a ReserveBalance entity.
       tags:
-        - reserveBalance
+        - v4 reserve balance
       parameters:
         - name: id
           description: Identifier of the ReserveBalance
@@ -1096,7 +1096,7 @@ paths:
       description: This operation retrieves a ReserveBalance entity. Attribute selection
         is enabled for all first level attributes.
       tags:
-        - reserveBalance
+        - v4 reserve balance
       parameters:
         - name: id
           description: Identifier of the ReserveBalance
@@ -1146,7 +1146,7 @@ paths:
       summary: Deletes a ReserveBalance
       description: This operation deletes a ReserveBalance entity.
       tags:
-        - reserveBalance
+        - v4 reserve balance
       parameters:
         - name: id
           description: Identifier of the ReserveBalance
@@ -1190,7 +1190,7 @@ paths:
       summary: List or find AccumulatedBalance objects
       description: This operation list or find AccumulatedBalance entities
       tags:
-        - accumulatedBalance
+        - v4 accumulated balance
       parameters:
         - name: fields
           description: Comma-separated properties to be provided in response
@@ -1256,7 +1256,7 @@ paths:
       description: This operation retrieves a AccumulatedBalance entity. Attribute
         selection is enabled for all first level attributes.
       tags:
-        - accumulatedBalance
+        - v4 accumulated balance
       parameters:
         - name: id
           description: Identifier of the AccumulatedBalance
@@ -1307,7 +1307,7 @@ paths:
       summary: List or find BalanceActionHistory objects
       description: This operation list or find BalanceActionHistory entities
       tags:
-        - balanceActionHistory
+        - v4 balance action history
       parameters:
         - name: fields
           description: Comma-separated properties to be provided in response
@@ -1373,7 +1373,7 @@ paths:
       description: This operation retrieves a BalanceActionHistory entity. Attribute
         selection is enabled for all first level attributes.
       tags:
-        - balanceActionHistory
+        - v4 balance action history
       parameters:
         - name: id
           description: Identifier of the BalanceActionHistory
@@ -1426,7 +1426,7 @@ paths:
         use to deliver information about its health state, execution state, failures
         and metrics.
       tags:
-        - events subscription
+        - v4 events subscription
       parameters:
         - name: data
           schema:
@@ -1475,7 +1475,7 @@ paths:
         must use to deliver information about its health state, execution state, failures
         and metrics.
       tags:
-        - events subscription
+        - v4 events subscription
       parameters:
         - name: id
           type: string
@@ -1515,7 +1515,7 @@ paths:
       summary: Client listener for entity TopupBalanceCreateEvent
       description: Example of a client listener for receiving the notification TopupBalanceCreateEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1562,7 +1562,7 @@ paths:
       summary: Client listener for entity TopupBalanceCancelEvent
       description: Example of a client listener for receiving the notification TopupBalanceCancelEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1609,7 +1609,7 @@ paths:
       summary: Client listener for entity TopupBalanceFailureEvent
       description: Example of a client listener for receiving the notification TopupBalanceFailureEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1656,7 +1656,7 @@ paths:
       summary: Client listener for entity AdjustBalanceCreateEvent
       description: Example of a client listener for receiving the notification AdjustBalanceCreateEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1703,7 +1703,7 @@ paths:
       summary: Client listener for entity AdjustBalanceCancelEvent
       description: Example of a client listener for receiving the notification AdjustBalanceCancelEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1750,7 +1750,7 @@ paths:
       summary: Client listener for entity AdjustBalanceFailureEvent
       description: Example of a client listener for receiving the notification AdjustBalanceFailureEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1797,7 +1797,7 @@ paths:
       summary: Client listener for entity TransferBalanceCreateEvent
       description: Example of a client listener for receiving the notification TransferBalanceCreateEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1844,7 +1844,7 @@ paths:
       summary: Client listener for entity TransferBalanceCancelEvent
       description: Example of a client listener for receiving the notification TransferBalanceCancelEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1891,7 +1891,7 @@ paths:
       summary: Client listener for entity TransferBalanceFailureEvent
       description: Example of a client listener for receiving the notification TransferBalanceFailureEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1938,7 +1938,7 @@ paths:
       summary: Client listener for entity ReserveBalanceCreateEvent
       description: Example of a client listener for receiving the notification ReserveBalanceCreateEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -1985,7 +1985,7 @@ paths:
       summary: Client listener for entity ReserveBalanceCancelEvent
       description: Example of a client listener for receiving the notification ReserveBalanceCancelEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true
@@ -2032,7 +2032,7 @@ paths:
       summary: Client listener for entity ReserveBalanceFailureEvent
       description: Example of a client listener for receiving the notification ReserveBalanceFailureEvent
       tags:
-        - notification listeners (client side)
+        - v4 notification listeners
       parameters:
         - name: data
           required: true

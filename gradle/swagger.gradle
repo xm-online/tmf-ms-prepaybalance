@@ -37,6 +37,7 @@ task openApiGenerateV4(type: org.openapitools.generator.gradle.plugin.tasks.Gene
     configOptions = [delegatePattern: "true", title: "hub"]
     validateSpec = true
     importMappings = [Problem: "org.zalando.problem.Problem"]
+    additionalProperties = [useTags: "true"]
 }
 
 sourceSets {

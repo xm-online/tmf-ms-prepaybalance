@@ -20,7 +20,7 @@ public class BucketDelegate implements BucketApiDelegate {
     @Override
     @LogicExtensionPoint(value = "RetrieveBuckets", resolver = ProfileKeyResolver.class)
     @PrivilegeDescription("Privilege to retrieve buckets")
-    @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'RETRIEVE.BUCKETS')")
+    @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'PREPAYBALANCE.BUCKETS.RETRIEVE')")
     public ResponseEntity<List<BucketBalance>> retrieveBuckets(String productId) {
         return ResponseEntity.ok().build();
     }

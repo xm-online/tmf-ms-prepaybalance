@@ -17,7 +17,7 @@ public class BalanceDeductDelegate implements BalanceDeductApiDelegate {
 
     @Timed
     @LogicExtensionPoint(value = "PrepayBalanceDeduct", resolver = ProfileKeyResolver.class)
-    @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'BALANCE.DEDUCT')")
+    @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'PREPAYBALANCE.BALANCE.DEDUCT')")
     @Override
     @PrivilegeDescription("Privilege to deduct balance")
     public ResponseEntity<Void> deductBalanceAmount(BalanceDeductRequest balanceDeductRequest) {

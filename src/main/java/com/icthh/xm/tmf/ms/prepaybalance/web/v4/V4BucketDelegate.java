@@ -20,8 +20,17 @@ public class V4BucketDelegate implements V4BucketApiDelegate {
     @Override
     @LogicExtensionPoint(value = "ListBucket", resolver = ProfileKeyResolver.class)
     @PrivilegeDescription("Privilege to list bucket")
-    @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'LIST.BUCKET')")
+    @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'PREPAYBALANCE.BUCKET.LIST')")
     public ResponseEntity<List<Bucket>> listBucket(String fields, Integer offset, Integer limit) {
+        return ResponseEntity.ok().build();
+    }
+
+    @Timed
+    @Override
+    @LogicExtensionPoint(value = "RetrieveBucket", resolver = ProfileKeyResolver.class)
+    @PrivilegeDescription("Privilege to retrieve bucket")
+    @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'PREPAYBALANCE.BUCKET.RETRIEVE')")
+    public ResponseEntity<Bucket> retrieveBucket(String id, String fields) {
         return ResponseEntity.ok().build();
     }
 }

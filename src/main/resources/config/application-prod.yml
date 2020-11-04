@@ -47,7 +47,7 @@ spring:
       auto-commit: false
   jpa:
     database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect
-    database: ORACLE
+    database: POSTGRESQL
     show-sql: false
     properties:
       hibernate.id.new_generator_mappings: true

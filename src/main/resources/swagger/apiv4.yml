@@ -37,7 +37,7 @@ info:
     - Retrieve aggregated (accumulative) balances for a bucket.
   version: 4.0.0
 host: serverRoot
-basePath: "/tmf-api/prepayBalanceManagement/v4"
+basePath: '/tmf-api/prepayBalanceManagement/v4'
 schemes:
   - https
 consumes:
@@ -55,7 +55,7 @@ tags:
   - name: v4 notification listeners
   - name: v4 events subscription
 paths:
-  "/bucket":
+  '/bucket':
     get:
       operationId: listBucket
       summary: List or find Bucket objects
@@ -91,36 +91,36 @@ paths:
           schema:
             type: array
             items:
-              "$ref": "#/definitions/Bucket"
+              '$ref': '#/definitions/Bucket'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/bucket/{id}":
+            '$ref': '#/definitions/Error'
+  '/bucket/{id}':
     get:
       operationId: retrieveBucket
       summary: Retrieves a Bucket by ID
@@ -143,36 +143,36 @@ paths:
         '200':
           description: Success
           schema:
-            "$ref": "#/definitions/Bucket"
+            '$ref': '#/definitions/Bucket'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/topupBalance":
+            '$ref': '#/definitions/Error'
+  '/topupBalance':
     get:
       operationId: listTopupBalance
       summary: List or find TopupBalance objects
@@ -208,35 +208,35 @@ paths:
           schema:
             type: array
             items:
-              "$ref": "#/definitions/TopupBalance"
+              '$ref': '#/definitions/TopupBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     post:
       operationId: createTopupBalance
       summary: Creates a TopupBalance
@@ -248,38 +248,38 @@ paths:
           description: The TopupBalance to be created
           required: true
           schema:
-            "$ref": "#/definitions/TopupBalance_Create"
+            '$ref': '#/definitions/TopupBalance_Create'
           in: body
       responses:
         '201':
           description: Created
           schema:
-            "$ref": "#/definitions/TopupBalance"
+            '$ref': '#/definitions/TopupBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/topupBalance/{id}":
+            '$ref': '#/definitions/Error'
+  '/topupBalance/{id}':
     patch:
       operationId: patchTopupBalance
       summary: Updates partially a TopupBalance
@@ -296,41 +296,41 @@ paths:
           description: The TopupBalance to be updated
           required: true
           schema:
-            "$ref": "#/definitions/TopupBalance_Update"
+            '$ref': '#/definitions/TopupBalance_Update'
           in: body
       responses:
         '200':
           description: Updated
           schema:
-            "$ref": "#/definitions/TopupBalance"
+            '$ref': '#/definitions/TopupBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     get:
       operationId: retrieveTopupBalance
       summary: Retrieves a TopupBalance by ID
@@ -353,35 +353,35 @@ paths:
         '200':
           description: Success
           schema:
-            "$ref": "#/definitions/TopupBalance"
+            '$ref': '#/definitions/TopupBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     delete:
       operationId: deleteTopupBalance
       summary: Deletes a TopupBalance
@@ -400,32 +400,32 @@ paths:
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/adjustBalance":
+            '$ref': '#/definitions/Error'
+  '/adjustBalance':
     get:
       operationId: listAdjustBalance
       summary: List or find AdjustBalance objects
@@ -461,35 +461,35 @@ paths:
           schema:
             type: array
             items:
-              "$ref": "#/definitions/AdjustBalance"
+              '$ref': '#/definitions/AdjustBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     post:
       operationId: createAdjustBalance
       summary: Creates a AdjustBalance
@@ -501,38 +501,38 @@ paths:
           description: The AdjustBalance to be created
           required: true
           schema:
-            "$ref": "#/definitions/AdjustBalance_Create"
+            '$ref': '#/definitions/AdjustBalance_Create'
           in: body
       responses:
         '201':
           description: Created
           schema:
-            "$ref": "#/definitions/AdjustBalance"
+            '$ref': '#/definitions/AdjustBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/adjustBalance/{id}":
+            '$ref': '#/definitions/Error'
+  '/adjustBalance/{id}':
     patch:
       operationId: patchAdjustBalance
       summary: Updates partially a AdjustBalance
@@ -549,41 +549,41 @@ paths:
           description: The AdjustBalance to be updated
           required: true
           schema:
-            "$ref": "#/definitions/AdjustBalance_Update"
+            '$ref': '#/definitions/AdjustBalance_Update'
           in: body
       responses:
         '200':
           description: Updated
           schema:
-            "$ref": "#/definitions/AdjustBalance"
+            '$ref': '#/definitions/AdjustBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     get:
       operationId: retrieveAdjustBalance
       summary: Retrieves a AdjustBalance by ID
@@ -606,35 +606,35 @@ paths:
         '200':
           description: Success
           schema:
-            "$ref": "#/definitions/AdjustBalance"
+            '$ref': '#/definitions/AdjustBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     delete:
       operationId: deleteAdjustBalance
       summary: Deletes a AdjustBalance
@@ -653,32 +653,32 @@ paths:
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/transferBalance":
+            '$ref': '#/definitions/Error'
+  '/transferBalance':
     get:
       operationId: listTransferBalance
       summary: List or find TransferBalance objects
@@ -714,35 +714,35 @@ paths:
           schema:
             type: array
             items:
-              "$ref": "#/definitions/TransferBalance"
+              '$ref': '#/definitions/TransferBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     post:
       operationId: createTransferBalance
       summary: Creates a TransferBalance
@@ -754,38 +754,38 @@ paths:
           description: The TransferBalance to be created
           required: true
           schema:
-            "$ref": "#/definitions/TransferBalance_Create"
+            '$ref': '#/definitions/TransferBalance_Create'
           in: body
       responses:
         '201':
           description: Created
           schema:
-            "$ref": "#/definitions/TransferBalance"
+            '$ref': '#/definitions/TransferBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/transferBalance/{id}":
+            '$ref': '#/definitions/Error'
+  '/transferBalance/{id}':
     patch:
       operationId: patchTransferBalance
       summary: Updates partially a TransferBalance
@@ -802,41 +802,41 @@ paths:
           description: The TransferBalance to be updated
           required: true
           schema:
-            "$ref": "#/definitions/TransferBalance_Update"
+            '$ref': '#/definitions/TransferBalance_Update'
           in: body
       responses:
         '200':
           description: Updated
           schema:
-            "$ref": "#/definitions/TransferBalance"
+            '$ref': '#/definitions/TransferBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     get:
       operationId: retrieveTransferBalance
       summary: Retrieves a TransferBalance by ID
@@ -859,35 +859,35 @@ paths:
         '200':
           description: Success
           schema:
-            "$ref": "#/definitions/TransferBalance"
+            '$ref': '#/definitions/TransferBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     delete:
       operationId: deleteTransferBalance
       summary: Deletes a TransferBalance
@@ -906,32 +906,32 @@ paths:
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/reserveBalance":
+            '$ref': '#/definitions/Error'
+  '/reserveBalance':
     get:
       operationId: listReserveBalance
       summary: List or find ReserveBalance objects
@@ -967,35 +967,35 @@ paths:
           schema:
             type: array
             items:
-              "$ref": "#/definitions/ReserveBalance"
+              '$ref': '#/definitions/ReserveBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     post:
       operationId: createReserveBalance
       summary: Creates a ReserveBalance
@@ -1007,38 +1007,38 @@ paths:
           description: The ReserveBalance to be created
           required: true
           schema:
-            "$ref": "#/definitions/ReserveBalance_Create"
+            '$ref': '#/definitions/ReserveBalance_Create'
           in: body
       responses:
         '201':
           description: Created
           schema:
-            "$ref": "#/definitions/ReserveBalance"
+            '$ref': '#/definitions/ReserveBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/reserveBalance/{id}":
+            '$ref': '#/definitions/Error'
+  '/reserveBalance/{id}':
     patch:
       operationId: patchReserveBalance
       summary: Updates partially a ReserveBalance
@@ -1055,41 +1055,41 @@ paths:
           description: The ReserveBalance to be updated
           required: true
           schema:
-            "$ref": "#/definitions/ReserveBalance_Update"
+            '$ref': '#/definitions/ReserveBalance_Update'
           in: body
       responses:
         '200':
           description: Updated
           schema:
-            "$ref": "#/definitions/ReserveBalance"
+            '$ref': '#/definitions/ReserveBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     get:
       operationId: retrieveReserveBalance
       summary: Retrieves a ReserveBalance by ID
@@ -1112,35 +1112,35 @@ paths:
         '200':
           description: Success
           schema:
-            "$ref": "#/definitions/ReserveBalance"
+            '$ref': '#/definitions/ReserveBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
     delete:
       operationId: deleteReserveBalance
       summary: Deletes a ReserveBalance
@@ -1159,32 +1159,32 @@ paths:
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/accumulatedBalance":
+            '$ref': '#/definitions/Error'
+  '/accumulatedBalance':
     get:
       operationId: listAccumulatedBalance
       summary: List or find AccumulatedBalance objects
@@ -1220,36 +1220,36 @@ paths:
           schema:
             type: array
             items:
-              "$ref": "#/definitions/AccumulatedBalance"
+              '$ref': '#/definitions/AccumulatedBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/accumulatedBalance/{id}":
+            '$ref': '#/definitions/Error'
+  '/accumulatedBalance/{id}':
     get:
       operationId: retrieveAccumulatedBalance
       summary: Retrieves a AccumulatedBalance by ID
@@ -1272,36 +1272,36 @@ paths:
         '200':
           description: Success
           schema:
-            "$ref": "#/definitions/AccumulatedBalance"
+            '$ref': '#/definitions/AccumulatedBalance'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/balanceActionHistory":
+            '$ref': '#/definitions/Error'
+  '/balanceActionHistory':
     get:
       operationId: listBalanceActionHistory
       summary: List or find BalanceActionHistory objects
@@ -1337,36 +1337,36 @@ paths:
           schema:
             type: array
             items:
-              "$ref": "#/definitions/BalanceActionHistory"
+              '$ref': '#/definitions/BalanceActionHistory'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/balanceActionHistory/{id}":
+            '$ref': '#/definitions/Error'
+  '/balanceActionHistory/{id}':
     get:
       operationId: retrieveBalanceActionHistory
       summary: Retrieves a BalanceActionHistory by ID
@@ -1389,36 +1389,36 @@ paths:
         '200':
           description: Success
           schema:
-            "$ref": "#/definitions/BalanceActionHistory"
+            '$ref': '#/definitions/BalanceActionHistory'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/hub":
+            '$ref': '#/definitions/Error'
+  '/hub':
     post:
       operationId: registerListener
       summary: Register a listener
@@ -1430,7 +1430,7 @@ paths:
       parameters:
         - name: data
           schema:
-            "$ref": "#/definitions/EventSubscriptionInput"
+            '$ref': '#/definitions/EventSubscriptionInput'
           required: true
           in: body
           description: Data containing the callback endpoint to deliver the information
@@ -1438,36 +1438,36 @@ paths:
         '201':
           description: Subscribed
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/hub/{id}":
+            '$ref': '#/definitions/Error'
+  '/hub/{id}':
     delete:
       operationId: unregisterListener
       summary: Unregister a listener
@@ -1488,28 +1488,28 @@ paths:
         '400':
           description: Bad request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/topupBalanceCreateEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/topupBalanceCreateEvent':
     post:
       operationId: listenToTopupBalanceCreateEvent
       summary: Client listener for entity TopupBalanceCreateEvent
@@ -1522,41 +1522,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/TopupBalanceCreateEvent"
+            '$ref': '#/definitions/TopupBalanceCreateEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/topupBalanceCancelEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/topupBalanceCancelEvent':
     post:
       operationId: listenToTopupBalanceCancelEvent
       summary: Client listener for entity TopupBalanceCancelEvent
@@ -1569,41 +1569,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/TopupBalanceCancelEvent"
+            '$ref': '#/definitions/TopupBalanceCancelEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/topupBalanceFailureEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/topupBalanceFailureEvent':
     post:
       operationId: listenToTopupBalanceFailureEvent
       summary: Client listener for entity TopupBalanceFailureEvent
@@ -1616,41 +1616,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/TopupBalanceFailureEvent"
+            '$ref': '#/definitions/TopupBalanceFailureEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/adjustBalanceCreateEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/adjustBalanceCreateEvent':
     post:
       operationId: listenToAdjustBalanceCreateEvent
       summary: Client listener for entity AdjustBalanceCreateEvent
@@ -1663,41 +1663,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/AdjustBalanceCreateEvent"
+            '$ref': '#/definitions/AdjustBalanceCreateEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/adjustBalanceCancelEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/adjustBalanceCancelEvent':
     post:
       operationId: listenToAdjustBalanceCancelEvent
       summary: Client listener for entity AdjustBalanceCancelEvent
@@ -1710,41 +1710,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/AdjustBalanceCancelEvent"
+            '$ref': '#/definitions/AdjustBalanceCancelEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/adjustBalanceFailureEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/adjustBalanceFailureEvent':
     post:
       operationId: listenToAdjustBalanceFailureEvent
       summary: Client listener for entity AdjustBalanceFailureEvent
@@ -1757,41 +1757,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/AdjustBalanceFailureEvent"
+            '$ref': '#/definitions/AdjustBalanceFailureEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/transferBalanceCreateEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/transferBalanceCreateEvent':
     post:
       operationId: listenToTransferBalanceCreateEvent
       summary: Client listener for entity TransferBalanceCreateEvent
@@ -1804,41 +1804,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/TransferBalanceCreateEvent"
+            '$ref': '#/definitions/TransferBalanceCreateEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/transferBalanceCancelEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/transferBalanceCancelEvent':
     post:
       operationId: listenToTransferBalanceCancelEvent
       summary: Client listener for entity TransferBalanceCancelEvent
@@ -1851,41 +1851,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/TransferBalanceCancelEvent"
+            '$ref': '#/definitions/TransferBalanceCancelEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/transferBalanceFailureEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/transferBalanceFailureEvent':
     post:
       operationId: listenToTransferBalanceFailureEvent
       summary: Client listener for entity TransferBalanceFailureEvent
@@ -1898,41 +1898,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/TransferBalanceFailureEvent"
+            '$ref': '#/definitions/TransferBalanceFailureEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/reserveBalanceCreateEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/reserveBalanceCreateEvent':
     post:
       operationId: listenToReserveBalanceCreateEvent
       summary: Client listener for entity ReserveBalanceCreateEvent
@@ -1945,41 +1945,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/ReserveBalanceCreateEvent"
+            '$ref': '#/definitions/ReserveBalanceCreateEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/reserveBalanceCancelEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/reserveBalanceCancelEvent':
     post:
       operationId: listenToReserveBalanceCancelEvent
       summary: Client listener for entity ReserveBalanceCancelEvent
@@ -1992,41 +1992,41 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/ReserveBalanceCancelEvent"
+            '$ref': '#/definitions/ReserveBalanceCancelEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
-  "/listener/reserveBalanceFailureEvent":
+            '$ref': '#/definitions/Error'
+  '/listener/reserveBalanceFailureEvent':
     post:
       operationId: listenToReserveBalanceFailureEvent
       summary: Client listener for entity ReserveBalanceFailureEvent
@@ -2039,40 +2039,40 @@ paths:
           in: body
           description: The event data
           schema:
-            "$ref": "#/definitions/ReserveBalanceFailureEvent"
+            '$ref': '#/definitions/ReserveBalanceFailureEvent'
       responses:
         '201':
           description: Notified
           schema:
-            "$ref": "#/definitions/EventSubscription"
+            '$ref': '#/definitions/EventSubscription'
         '400':
           description: Bad Request
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '401':
           description: Unauthorized
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '403':
           description: Forbidden
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '404':
           description: Not Found
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '405':
           description: Method Not allowed
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '409':
           description: Conflict
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
         '500':
           description: Internal Server Error
           schema:
-            "$ref": "#/definitions/Error"
+            '$ref': '#/definitions/Error'
 definitions:
   AccumulatedBalance:
     type: object
@@ -2100,43 +2100,43 @@ definitions:
       bucket:
         type: array
         items:
-          "$ref": "#/definitions/BucketRef"
+          '$ref': '#/definitions/BucketRef'
         minItems: 1
         description: A reference to the buckets involved in the aggregation
       logicalResource:
-        "$ref": "#/definitions/LogicalResourceRef"
+        '$ref': '#/definitions/LogicalResourceRef'
         description: A reference to the logical resource that can be used to identify
           the bucket balance for example where product ids are not unique.
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the buckets aggregated
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
         description: A reference to the product whose consumption is managed by the
           bucket . This is an array to allow scenarios where a buckets are shared
           between different products
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: 'Used to provide information about any other entity with relation
           to the balance, for instance to define customer hierarchy for the balance
           (e.g.: customerId, userId, )'
       totalBalance:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Aggregated for a set of prepay balance buckets associated to
           the product
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   Action:
@@ -2166,59 +2166,59 @@ definitions:
         format: date-time
         description: Date when the deduction request was received in the server
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: Used to provide information about any other entity with relation
           to the operation
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       status:
-        "$ref": "#/definitions/ActionStatusType"
+        '$ref': '#/definitions/ActionStatusType'
         description: Status of the operation
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   ActionStatusType:
@@ -2239,15 +2239,15 @@ definitions:
       href:
         type: string
         description: Hyperlink reference
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   AdjustBalance:
@@ -2278,62 +2278,62 @@ definitions:
         format: date-time
         description: Date when the deduction request was received in the server
       adjustType:
-        "$ref": "#/definitions/AdjustType"
+        '$ref': '#/definitions/AdjustType'
         description: valid values are RecurringCharge or OneTimeCharge
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: Used to provide information about any other entity with relation
           to the operation
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       status:
-        "$ref": "#/definitions/ActionStatusType"
+        '$ref': '#/definitions/ActionStatusType'
         description: Status of the operation
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   AdjustBalance_Create:
@@ -2353,49 +2353,49 @@ definitions:
         type: string
         description: Text describing the reason for the action/task
       adjustType:
-        "$ref": "#/definitions/AdjustType"
+        '$ref': '#/definitions/AdjustType'
         description: valid values are RecurringCharge or OneTimeCharge
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   AdjustBalance_Update:
@@ -2421,62 +2421,62 @@ definitions:
         format: date-time
         description: Date when the deduction request was received in the server
       adjustType:
-        "$ref": "#/definitions/AdjustType"
+        '$ref': '#/definitions/AdjustType'
         description: valid values are RecurringCharge or OneTimeCharge
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: Used to provide information about any other entity with relation
           to the operation
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       status:
-        "$ref": "#/definitions/ActionStatusType"
+        '$ref': '#/definitions/ActionStatusType'
         description: Status of the operation
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   AdjustType:
@@ -2527,34 +2527,34 @@ definitions:
         description: Identifier for a voucher when the topup can be performed by this
           means
       adjustType:
-        "$ref": "#/definitions/AdjustType"
+        '$ref': '#/definitions/AdjustType'
         description: valid values are RecurringCharge or OneTimeCharge
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       balanceTopup:
-        "$ref": "#/definitions/RelatedTopupBalance"
+        '$ref': '#/definitions/RelatedTopupBalance'
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       costOwner:
-        "$ref": "#/definitions/CostOwnerType"
+        '$ref': '#/definitions/CostOwnerType'
         description: Indicates which related party will bear the costs of the transfer
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       paymentMethod:
-        "$ref": "#/definitions/PaymentMethodRef"
+        '$ref': '#/definitions/PaymentMethodRef'
         description: 'Payment method used for the recharge operation (e.g.: cash,
           credit card). Structure including at least attribute dname. Notice that
           the use of a voucher can be managed as a specific methodtype, where he voucher
@@ -2562,65 +2562,65 @@ definitions:
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       receiver:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that receives the transfer
           when it is required to indicate additional customer hierarchy information
           regarding the entity receiving the balance transfer Structure including
           at least attributes “role” and “name”
       receiverBucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket to which the balance will be transferred
       receiverBucketUsageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: 'Type of prepay balance bucket (e.g.: roaming-data, data, roaming-voice
           etc)'
       receiverLogicalResource:
-        "$ref": "#/definitions/LogicalResourceRef"
+        '$ref': '#/definitions/LogicalResourceRef'
         description: A reference to the logical resource that can be used to identify
           the bucket balance for example where product ids are not unique.
       receiverProduct:
-        "$ref": "#/definitions/ProductRef"
+        '$ref': '#/definitions/ProductRef'
       recurringPeriod:
-        "$ref": "#/definitions/RecurringPeriodType"
+        '$ref': '#/definitions/RecurringPeriodType'
         description: For autotopup indicates the periodicity for the recharge operation
           (monthly, weekly, )
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: Used to provide information about any other entity with relation
           to the operation
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the transfer
           action.This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel Structure
           including at least attributes “role” and “name”
       status:
-        "$ref": "#/definitions/ActionStatusType"
+        '$ref': '#/definitions/ActionStatusType'
         description: Status of the operation
       transferCost:
-        "$ref": "#/definitions/Money"
+        '$ref': '#/definitions/Money'
         description: Associated cost to be charged for the transfer operation (can
           be monetary or non-monetary)
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   Bucket:
@@ -2662,46 +2662,46 @@ definitions:
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: 'Used to provide information about any other entity with relation
           to the balance, for instance to define customer hierarchy for the balance
           (e.g.: customerId, userId, )'
       remainingValue:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       reservedValue:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount reserved on the bucket
       status:
-        "$ref": "#/definitions/BucketStatusType"
+        '$ref': '#/definitions/BucketStatusType'
         description: status for the bucket. active, expired, suspended
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   BucketRef:
@@ -2717,21 +2717,21 @@ definitions:
       name:
         type: string
         description: Name of the related entity.
-      "@baseType":
+      '@baseType':
         example: ResourceSpecification
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         example: https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         example: LogicalResourceSpecification
         type: string
         description: When sub-classing, this defines the sub-class Extensible name
-      "@referredType":
+      '@referredType':
         type: string
         description: The actual type of the target instance when needed for disambiguation.
     required:
@@ -2757,21 +2757,21 @@ definitions:
       name:
         type: string
         description: Name of the channel.
-      "@baseType":
+      '@baseType':
         example: ResourceSpecification
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         example: https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         example: LogicalResourceSpecification
         type: string
         description: When sub-classing, this defines the sub-class Extensible name
-      "@referredType":
+      '@referredType':
         type: string
         description: The actual type of the target instance when needed for disambiguation.
     required:
@@ -2795,21 +2795,21 @@ definitions:
       name:
         type: string
         description: Name of the related entity.
-      "@baseType":
+      '@baseType':
         example: ResourceSpecification
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         example: https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         example: LogicalResourceSpecification
         type: string
         description: When sub-classing, this defines the sub-class Extensible name
-      "@referredType":
+      '@referredType':
         type: string
         description: The actual type of the target instance when needed for disambiguation.
     required:
@@ -2818,17 +2818,17 @@ definitions:
     type: object
     description: Base Extensible schema for use in TMForum Open-APIs
     properties:
-      "@baseType":
+      '@baseType':
         example: ResourceSpecification
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         example: https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         example: LogicalResourceSpecification
         type: string
         description: When sub-classing, this defines the sub-class Extensible name
@@ -2845,21 +2845,21 @@ definitions:
       name:
         type: string
         description: Name of the related entity.
-      "@baseType":
+      '@baseType':
         example: ResourceSpecification
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         example: https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         example: LogicalResourceSpecification
         type: string
         description: When sub-classing, this defines the sub-class Extensible name
-      "@referredType":
+      '@referredType':
         type: string
         description: The actual type of the target instance when needed for disambiguation.
     required:
@@ -2875,15 +2875,15 @@ definitions:
         type: number
         format: float
         description: A positive floating point number
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   PartyAccountRef:
@@ -2906,18 +2906,18 @@ definitions:
       status:
         type: string
         description: The condition of the account, such as due, paid, in arrears.
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
-      "@referredType":
+      '@referredType':
         type: string
         description: The actual type of the target instance when needed for disambiguation.
     required:
@@ -2936,21 +2936,21 @@ definitions:
       name:
         type: string
         description: Name of the related entity.
-      "@baseType":
+      '@baseType':
         example: ResourceSpecification
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         example: https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         example: LogicalResourceSpecification
         type: string
         description: When sub-classing, this defines the sub-class Extensible name
-      "@referredType":
+      '@referredType':
         type: string
         description: The actual type of the target instance when needed for disambiguation.
     required:
@@ -2967,21 +2967,21 @@ definitions:
       name:
         type: string
         description: Name of the related entity.
-      "@baseType":
+      '@baseType':
         example: ResourceSpecification
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         example: https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         example: LogicalResourceSpecification
         type: string
         description: When sub-classing, this defines the sub-class Extensible name
-      "@referredType":
+      '@referredType':
         type: string
         description: The actual type of the target instance when needed for disambiguation.
     required:
@@ -2998,15 +2998,15 @@ definitions:
       units:
         type: string
         description: Unit
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   RecurringPeriodType:
@@ -3021,7 +3021,6 @@ definitions:
     description: Related Entity reference. A related party defines party or party
       role linked to a specific entity.
     required:
-      - "@referredType"
       - id
     properties:
       id:
@@ -3036,21 +3035,21 @@ definitions:
       role:
         type: string
         description: Role played by the related party
-      "@baseType":
+      '@baseType':
         example: ResourceSpecification
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         example: https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         example: LogicalResourceSpecification
         type: string
         description: When sub-classing, this defines the sub-class Extensible name
-      "@referredType":
+      '@referredType':
         type: string
         description: The actual type of the target instance when needed for disambiguation.
   RelatedTopupBalance:
@@ -3060,7 +3059,7 @@ definitions:
       to track child topups that are related to the parent (initiating balance topup
       resource). PrepayBalanceManagement defines the child role
     required:
-      - "@referredType"
+      - '@referredType'
       - id
     properties:
       id:
@@ -3076,21 +3075,21 @@ definitions:
         type: string
         description: Role played by the TopupBalance. In the PrepayBalanceManagement
           API this is parent or child
-      "@baseType":
+      '@baseType':
         example: ResourceSpecification
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         example: https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         example: LogicalResourceSpecification
         type: string
         description: When sub-classing, this defines the sub-class Extensible name
-      "@referredType":
+      '@referredType':
         type: string
         description: The actual type of the target instance when needed for disambiguation.
   ReserveBalance:
@@ -3121,59 +3120,59 @@ definitions:
         format: date-time
         description: Date when the deduction request was received in the server
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: Used to provide information about any other entity with relation
           to the operation
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       status:
-        "$ref": "#/definitions/ActionStatusType"
+        '$ref': '#/definitions/ActionStatusType'
         description: Status of the operation
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   ReserveBalance_Create:
@@ -3193,50 +3192,50 @@ definitions:
         type: string
         description: Text describing the reason for the action/task
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   ReserveBalance_Update:
@@ -3263,59 +3262,59 @@ definitions:
         format: date-time
         description: Date when the deduction request was received in the server
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: Used to provide information about any other entity with relation
           to the operation
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       status:
-        "$ref": "#/definitions/ActionStatusType"
+        '$ref': '#/definitions/ActionStatusType'
         description: Status of the operation
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   TimePeriod:
@@ -3334,15 +3333,15 @@ definitions:
         format: date-time
         description: Start of the time period, using IETC-RFC-3339 format. If you
           define a start, you must also define an end
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   TopupBalance:
@@ -3387,28 +3386,28 @@ definitions:
         description: Identifier for a voucher when the topup can be performed by this
           means
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       balanceTopup:
-        "$ref": "#/definitions/RelatedTopupBalance"
+        '$ref': '#/definitions/RelatedTopupBalance'
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       paymentMethod:
-        "$ref": "#/definitions/PaymentMethodRef"
+        '$ref': '#/definitions/PaymentMethodRef'
         description: 'Payment method used for the recharge operation (e.g.: cash,
           credit card). Structure including at least attribute dname. Notice that
           the use of a voucher can be managed as a specific methodtype, where he voucher
@@ -3416,42 +3415,42 @@ definitions:
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       recurringPeriod:
-        "$ref": "#/definitions/RecurringPeriodType"
+        '$ref': '#/definitions/RecurringPeriodType'
         description: For autotopup indicates the periodicity for the recharge operation
           (monthly, weekly, )
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: Used to provide information about any other entity with relation
           to the operation
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       status:
-        "$ref": "#/definitions/ActionStatusType"
+        '$ref': '#/definitions/ActionStatusType'
         description: Status of the operation
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   TopupBalance_Create:
@@ -3485,28 +3484,28 @@ definitions:
         description: Identifier for a voucher when the topup can be performed by this
           means
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       balanceTopup:
-        "$ref": "#/definitions/RelatedTopupBalance"
+        '$ref': '#/definitions/RelatedTopupBalance'
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       paymentMethod:
-        "$ref": "#/definitions/PaymentMethodRef"
+        '$ref': '#/definitions/PaymentMethodRef'
         description: 'Payment method used for the recharge operation (e.g.: cash,
           credit card). Structure including at least attribute dname. Notice that
           the use of a voucher can be managed as a specific methodtype, where he voucher
@@ -3514,33 +3513,33 @@ definitions:
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       recurringPeriod:
-        "$ref": "#/definitions/RecurringPeriodType"
+        '$ref': '#/definitions/RecurringPeriodType'
         description: For autotopup indicates the periodicity for the recharge operation
           (monthly, weekly, )
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   TopupBalance_Update:
@@ -3579,28 +3578,28 @@ definitions:
         description: Identifier for a voucher when the topup can be performed by this
           means
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       balanceTopup:
-        "$ref": "#/definitions/RelatedTopupBalance"
+        '$ref': '#/definitions/RelatedTopupBalance'
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       paymentMethod:
-        "$ref": "#/definitions/PaymentMethodRef"
+        '$ref': '#/definitions/PaymentMethodRef'
         description: 'Payment method used for the recharge operation (e.g.: cash,
           credit card). Structure including at least attribute dname. Notice that
           the use of a voucher can be managed as a specific methodtype, where he voucher
@@ -3608,42 +3607,42 @@ definitions:
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       recurringPeriod:
-        "$ref": "#/definitions/RecurringPeriodType"
+        '$ref': '#/definitions/RecurringPeriodType'
         description: For autotopup indicates the periodicity for the recharge operation
           (monthly, weekly, )
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: Used to provide information about any other entity with relation
           to the operation
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       status:
-        "$ref": "#/definitions/ActionStatusType"
+        '$ref': '#/definitions/ActionStatusType'
         description: Status of the operation
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   TransferBalance:
@@ -3681,86 +3680,86 @@ definitions:
         format: date-time
         description: Date when the deduction request was received in the server
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       costOwner:
-        "$ref": "#/definitions/CostOwnerType"
+        '$ref': '#/definitions/CostOwnerType'
         description: Indicates which related party will bear the costs of the transfer
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
         minItems: 1
       partyAccount:
-        "$ref": "#/definitions/PartyAccountRef"
+        '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the
           balance related operation
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       receiver:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that receives the transfer
           when it is required to indicate additional customer hierarchy information
           regarding the entity receiving the balance transfer Structure including
           at least attributes “role” and “name”
       receiverBucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket to which the balance will be transferred
       receiverBucketUsageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: 'Type of prepay balance bucket (e.g.: roaming-data, data, roaming-voice
           etc)'
       receiverLogicalResource:
-        "$ref": "#/definitions/LogicalResourceRef"
+        '$ref': '#/definitions/LogicalResourceRef'
         description: A reference to the logical resource that can be used to identify
           the bucket balance for example where product ids are not unique.
       receiverProduct:
-        "$ref": "#/definitions/ProductRef"
+        '$ref': '#/definitions/ProductRef'
       relatedParty:
         type: array
         items:
-          "$ref": "#/definitions/RelatedParty"
+          '$ref': '#/definitions/RelatedParty'
         description: Used to provide information about any other entity with relation
           to the operation
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       status:
-        "$ref": "#/definitions/ActionStatusType"
+        '$ref': '#/definitions/ActionStatusType'
         description: Status of the operation
       transferCost:
-        "$ref": "#/definitions/Money"
+        '$ref': '#/definitions/Money'
         description: Associated cost to be charged for the transfer operation (can
           be monetary or non-monetary)
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   TransferBalance_Create:
@@ -3770,14 +3769,9 @@ definitions:
       Skipped properties: id,href,status,requestedDate,confirmationDate,relatedParty,partyAccount
     required:
       - reason
-      - receiverLogicalResource
       - channel
       - logicalResource
-      - amount
       - usageType
-      - bucket
-      - receiverBucket
-      - receiverBucketUsageType
     properties:
       description:
         type: string
@@ -3786,73 +3780,70 @@ definitions:
         type: string
         description: Text describing the reason for the action/task
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       costOwner:
-        "$ref": "#/definitions/CostOwnerType"
+        '$ref': '#/definitions/CostOwnerType'
         description: Indicates which related party will bear the costs of the transfer
       logicalResource:
-        type: array
-        items:
-          "$ref": "#/definitions/LogicalResourceRef"
-        minItems: 1
+        '$ref': '#/definitions/LogicalResourceRef'
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       receiver:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that receives the transfer
           when it is required to indicate additional customer hierarchy information
           regarding the entity receiving the balance transfer Structure including
           at least attributes “role” and “name”
       receiverBucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket to which the balance will be transferred
       receiverBucketUsageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: 'Type of prepay balance bucket (e.g.: roaming-data, data, roaming-voice
           etc)'
       receiverLogicalResource:
-        "$ref": "#/definitions/LogicalResourceRef"
+        '$ref': '#/definitions/LogicalResourceRef'
         description: A reference to the logical resource that can be used to identify
           the bucket balance for example where product ids are not unique.
       receiverProduct:
-        "$ref": "#/definitions/ProductRef"
+        '$ref': '#/definitions/ProductRef'
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       transferCost:
-        "$ref": "#/definitions/Money"
+        '$ref': '#/definitions/Money'
         description: Associated cost to be charged for the transfer operation (can
           be monetary or non-monetary)
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
       validFor:
-        "$ref": "#/definitions/TimePeriod"
+        '$ref': '#/definitions/TimePeriod'
         description: The period for which the balance in the bucket is valid
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   TransferBalance_Update:
@@ -3870,70 +3861,70 @@ definitions:
         type: string
         description: Text describing the reason for the action/task
       amount:
-        "$ref": "#/definitions/Quantity"
+        '$ref': '#/definitions/Quantity'
         description: Indicate the amount on the bucket
       bucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket impacted by the request or the value
           itself.
       channel:
-        "$ref": "#/definitions/ChannelRef"
+        '$ref': '#/definitions/ChannelRef'
         description: Indicator for the channel used to request the transfer operation.
           Structure including at least attribute name
       costOwner:
-        "$ref": "#/definitions/CostOwnerType"
+        '$ref': '#/definitions/CostOwnerType'
         description: Indicates which related party will bear the costs of the transfer
       logicalResource:
         type: array
         items:
-          "$ref": "#/definitions/LogicalResourceRef"
+          '$ref': '#/definitions/LogicalResourceRef'
         minItems: 1
       product:
         type: array
         items:
-          "$ref": "#/definitions/ProductRef"
+          '$ref': '#/definitions/ProductRef'
       receiver:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that receives the transfer
           when it is required to indicate additional customer hierarchy information
           regarding the entity receiving the balance transfer Structure including
           at least attributes “role” and “name”
       receiverBucket:
-        "$ref": "#/definitions/BucketRef"
+        '$ref': '#/definitions/BucketRef'
         description: A reference to the bucket to which the balance will be transferred
       receiverBucketUsageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: 'Type of prepay balance bucket (e.g.: roaming-data, data, roaming-voice
           etc)'
       receiverLogicalResource:
-        "$ref": "#/definitions/LogicalResourceRef"
+        '$ref': '#/definitions/LogicalResourceRef'
         description: A reference to the logical resource that can be used to identify
           the bucket balance for example where product ids are not unique.
       receiverProduct:
-        "$ref": "#/definitions/ProductRef"
+        '$ref': '#/definitions/ProductRef'
       requestor:
-        "$ref": "#/definitions/RelatedParty"
+        '$ref': '#/definitions/RelatedParty'
         description: Identifier for the user/customer/entity that performs the top-up
           action. This can be used to indicate the identifier of an agent that performs
           the operation on behalf of a user via a customer service channel. Structure
           including at least attributes role and name.
       transferCost:
-        "$ref": "#/definitions/Money"
+        '$ref': '#/definitions/Money'
         description: Associated cost to be charged for the transfer operation (can
           be monetary or non-monetary)
       usageType:
-        "$ref": "#/definitions/UsageType"
+        '$ref': '#/definitions/UsageType'
         description: defines the type of the underlying Balance eg data,voice, any
           currency eg EUR, USD etc
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name
   UsageType:
@@ -3981,7 +3972,7 @@ definitions:
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/TopupBalanceCreateEventPayload"
+        '$ref': '#/definitions/TopupBalanceCreateEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4017,14 +4008,14 @@ definitions:
     properties:
       topupBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/TopupBalance"
+        '$ref': '#/definitions/TopupBalance'
   TopupBalanceCancelEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/TopupBalanceCancelEventPayload"
+        '$ref': '#/definitions/TopupBalanceCancelEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4060,14 +4051,14 @@ definitions:
     properties:
       topupBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/TopupBalance"
+        '$ref': '#/definitions/TopupBalance'
   TopupBalanceFailureEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/TopupBalanceFailureEventPayload"
+        '$ref': '#/definitions/TopupBalanceFailureEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4103,14 +4094,14 @@ definitions:
     properties:
       topupBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/TopupBalance"
+        '$ref': '#/definitions/TopupBalance'
   AdjustBalanceCreateEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/AdjustBalanceCreateEventPayload"
+        '$ref': '#/definitions/AdjustBalanceCreateEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4146,14 +4137,14 @@ definitions:
     properties:
       adjustBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/AdjustBalance"
+        '$ref': '#/definitions/AdjustBalance'
   AdjustBalanceCancelEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/AdjustBalanceCancelEventPayload"
+        '$ref': '#/definitions/AdjustBalanceCancelEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4189,14 +4180,14 @@ definitions:
     properties:
       adjustBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/AdjustBalance"
+        '$ref': '#/definitions/AdjustBalance'
   AdjustBalanceFailureEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/AdjustBalanceFailureEventPayload"
+        '$ref': '#/definitions/AdjustBalanceFailureEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4232,14 +4223,14 @@ definitions:
     properties:
       adjustBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/AdjustBalance"
+        '$ref': '#/definitions/AdjustBalance'
   TransferBalanceCreateEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/TransferBalanceCreateEventPayload"
+        '$ref': '#/definitions/TransferBalanceCreateEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4275,14 +4266,14 @@ definitions:
     properties:
       transferBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/TransferBalance"
+        '$ref': '#/definitions/TransferBalance'
   TransferBalanceCancelEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/TransferBalanceCancelEventPayload"
+        '$ref': '#/definitions/TransferBalanceCancelEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4318,14 +4309,14 @@ definitions:
     properties:
       transferBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/TransferBalance"
+        '$ref': '#/definitions/TransferBalance'
   TransferBalanceFailureEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/TransferBalanceFailureEventPayload"
+        '$ref': '#/definitions/TransferBalanceFailureEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4361,14 +4352,14 @@ definitions:
     properties:
       transferBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/TransferBalance"
+        '$ref': '#/definitions/TransferBalance'
   ReserveBalanceCreateEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/ReserveBalanceCreateEventPayload"
+        '$ref': '#/definitions/ReserveBalanceCreateEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4404,14 +4395,14 @@ definitions:
     properties:
       reserveBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/ReserveBalance"
+        '$ref': '#/definitions/ReserveBalance'
   ReserveBalanceCancelEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/ReserveBalanceCancelEventPayload"
+        '$ref': '#/definitions/ReserveBalanceCancelEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4447,14 +4438,14 @@ definitions:
     properties:
       reserveBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/ReserveBalance"
+        '$ref': '#/definitions/ReserveBalance'
   ReserveBalanceFailureEvent:
     type: object
     description: The notification data structure
     properties:
       event:
         description: The event payload linked to the involved resource object
-        "$ref": "#/definitions/ReserveBalanceFailureEventPayload"
+        '$ref': '#/definitions/ReserveBalanceFailureEventPayload'
       eventId:
         type: string
         description: The identifier of the notification.
@@ -4490,7 +4481,7 @@ definitions:
     properties:
       reserveBalance:
         description: The involved resource data for the event
-        "$ref": "#/definitions/ReserveBalance"
+        '$ref': '#/definitions/ReserveBalance'
   Error:
     description: Used when an API throws an Error, typically with a HTTP error response-code
       (3xx, 4xx, 5xx)
@@ -4517,15 +4508,14 @@ definitions:
         type: string
         format: uri
         description: URI of documentation describing the error.
-      "@baseType":
+      '@baseType':
         type: string
         description: When sub-classing, this defines the super-class.
-      "@schemaLocation":
+      '@schemaLocation':
         type: string
         format: uri
         description: A URI to a JSON-Schema file that defines additional attributes
           and relationships
-      "@type":
+      '@type':
         type: string
         description: When sub-classing, this defines the sub-class entity name.
-

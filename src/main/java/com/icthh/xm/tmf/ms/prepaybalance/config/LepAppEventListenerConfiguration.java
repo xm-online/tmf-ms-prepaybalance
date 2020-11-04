@@ -4,9 +4,11 @@ import com.icthh.xm.commons.config.client.service.TenantConfigService;
 import com.icthh.xm.commons.lep.commons.CommonsService;
 import com.icthh.xm.commons.permission.service.PermissionCheckService;
 import com.icthh.xm.tmf.ms.prepaybalance.lep.XmMsLepProcessingApplicationListener;
+import com.icthh.xm.tmf.ms.prepaybalance.service.SeparateTransactionExecutor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,11 +24,15 @@ public class LepAppEventListenerConfiguration {
         @Qualifier("loadBalancedRestTemplate") RestTemplate restTemplate,
         CommonsService commonsService,
         PermissionCheckService permissionCheckService,
-        KafkaTemplate<String, String> kafkaTemplate) {
+        KafkaTemplate<String, String> kafkaTemplate,
+        JdbcTemplate jdbcTemplate,
+        SeparateTransactionExecutor transactionExecutor) {
 
         return new XmMsLepProcessingApplicationListener(
             tenantConfigService,
             restTemplate,
+            jdbcTemplate,
+            transactionExecutor,
             commonsService,
             permissionCheckService,
             kafkaTemplate);

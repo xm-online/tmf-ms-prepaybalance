@@ -3694,10 +3694,7 @@ definitions:
         '$ref': '#/definitions/CostOwnerType'
         description: Indicates which related party will bear the costs of the transfer
       logicalResource:
-        type: array
-        items:
-          '$ref': '#/definitions/LogicalResourceRef'
-        minItems: 1
+        '$ref': '#/definitions/LogicalResourceRef'
       partyAccount:
         '$ref': '#/definitions/PartyAccountRef'
         description: A reference to the account that owns the bucket impacted by the

@@ -14,6 +14,8 @@ public final class LepXmAccountMsConstants {
     public static final String BINDING_SUB_KEY_TEMPLATE_KAFKA  = "kafka";
     public static final String BINDING_SUB_KEY_SERVICE_SEPARATE_TRANSACTION_EXECUTOR = "separateTransactionExecutor";
     public static final String BINDING_KEY_JDBC = "jdbc";
+    public static final String BINDING_KEY_ASYNC_EXECUTOR = "asyncExecutor";
+    public static final String BINDING_SUB_KEY_SERVICE_MAIL = "mailService";
 
     private LepXmAccountMsConstants() {
         throw new UnsupportedOperationException("Prevent creation for constructor utils class");

@@ -1366,7 +1366,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BalanceReserveBody'
+              $ref: '#/components/schemas/BalanceReserveRequest'
         required: true
       responses:
         201:
@@ -1376,7 +1376,10 @@ paths:
               description: Location where to query the created object
               schema:
                 type: string
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BalanceReserveBody'
         400:
           description: Bad Request
           content: {}

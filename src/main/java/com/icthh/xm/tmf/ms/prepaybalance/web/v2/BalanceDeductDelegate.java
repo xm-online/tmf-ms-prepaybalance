@@ -12,7 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 @Component
-@LepService(group = "service", name = "default")
+@LepService(group = "service")
 public class BalanceDeductDelegate implements BalanceDeductApiDelegate {
 
     @Timed

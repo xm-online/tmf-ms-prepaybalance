@@ -1855,7 +1855,6 @@ components:
         activities.
     BalanceReserveBody:
       required:
-        - id
         - relatedParty
         - reservedAmount
       type: object
@@ -1896,8 +1895,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/BalanceUnreserveBody'
     BalanceDeductBody:
-      required:
-        - relatedParty
       type: object
       properties:
         id:
@@ -1921,8 +1918,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/BalanceDeductBody'
         - type: object
-          required:
-            - deductAmount
           properties:
             deductAmount:
               $ref: '#/components/schemas/QuantityType'

@@ -1159,7 +1159,10 @@ paths:
               description: Location where to query the created transfer
               schema:
                 type: string
-          content: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BalanceAdjustmentBody'
         400:
           description: Bad Request
           content: {}

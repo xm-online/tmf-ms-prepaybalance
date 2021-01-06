@@ -1790,7 +1790,6 @@ components:
         - $ref: '#/components/schemas/BalanceTransferBody'
     BalanceAdjustmentBody:
       required:
-        - amount
         - reason
         - type
       type: object
@@ -2029,7 +2028,6 @@ components:
       description: link to the resource that holds bucket balance information
     ProductRefType:
       required:
-        - href
         - id
       type: object
       properties:

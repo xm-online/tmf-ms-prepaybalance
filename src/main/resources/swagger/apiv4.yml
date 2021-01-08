@@ -3651,13 +3651,10 @@ definitions:
       transfer operation requested between two buckets (reference to products owned
       by customers and consuming credit when using a service).
     required:
-      - href
       - id
       - reason
-      - receiverLogicalResource
       - channel
       - logicalResource
-      - status
     properties:
       id:
         type: string

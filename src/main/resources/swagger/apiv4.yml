@@ -3761,11 +3761,6 @@ definitions:
     description: |-
       The TransferBalance resource is a detailed description of credit transfer operation requested between two buckets (reference to products owned by customers and consuming credit when using a service).
       Skipped properties: id,href,status,requestedDate,confirmationDate,relatedParty,partyAccount
-    required:
-      - reason
-      - channel
-      - logicalResource
-      - usageType
     properties:
       description:
         type: string

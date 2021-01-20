@@ -3650,9 +3650,6 @@ definitions:
       by customers and consuming credit when using a service).
     required:
       - id
-      - reason
-      - channel
-      - logicalResource
     properties:
       id:
         type: string
@@ -3840,9 +3837,6 @@ definitions:
       Skipped properties: id,href,status,requestedDate,confirmationDate,validFor,description,partyAccount,relatedParty
     required:
       - reason
-      - receiverLogicalResource
-      - channel
-      - logicalResource
     properties:
       reason:
         type: string

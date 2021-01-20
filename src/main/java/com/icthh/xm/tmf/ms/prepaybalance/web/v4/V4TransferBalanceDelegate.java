@@ -6,6 +6,7 @@ import com.icthh.xm.commons.permission.annotation.PrivilegeDescription;
 import com.icthh.xm.tmf.ms.prepaybalance.web.v4.api.V4TransferBalanceApiDelegate;
 import com.icthh.xm.tmf.ms.prepaybalance.web.v4.api.model.TransferBalance;
 import com.icthh.xm.tmf.ms.prepaybalance.web.v4.api.model.TransferBalanceCreate;
+import com.icthh.xm.tmf.ms.prepaybalance.web.v4.api.model.TransferBalanceUpdate;
 import io.micrometer.core.annotation.Timed;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -40,6 +41,15 @@ public class V4TransferBalanceDelegate implements V4TransferBalanceApiDelegate {
     @PrivilegeDescription("Privilege to transfer balance")
     @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'PREPAYBALANCE.BALANCE.RETRIEVE')")
     public ResponseEntity<TransferBalance> retrieveTransferBalance(String id, String fields) {
+        return ResponseEntity.ok().build();
+    }
+
+    @Timed
+    @Override
+    @LogicExtensionPoint(value = "PatchTransferBalance")
+    @PrivilegeDescription("Privilege to patch transfer balance")
+    @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'PREPAYBALANCE.BALANCE.PATCH')")
+    public ResponseEntity<TransferBalance> patchTransferBalance(String id, TransferBalanceUpdate transferBalance) {
         return ResponseEntity.ok().build();
     }
 }

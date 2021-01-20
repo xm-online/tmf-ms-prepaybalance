@@ -2403,8 +2403,6 @@ definitions:
     description: |-
       The AdjustBalance resource allows adjustments to be made to the original BalanceTopup eg increment the amount, alter the recharge periodicity
       Skipped properties: id,href
-    required:
-      - status
     properties:
       confirmationDate:
         type: string

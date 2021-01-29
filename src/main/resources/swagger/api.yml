@@ -2050,9 +2050,11 @@ components:
       type: object
       properties:
         amount:
-          type: number
+          type: array
           description: Measured amount
-          format: decimal
+          items:
+           type: number
+           format: decimal
         units:
           type: string
           description: Units the quantity is measured in

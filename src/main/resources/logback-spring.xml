@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration>
 
 <configuration scan="true">
-    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <Pattern>%d %-5level [%thread] [%X{rid}] %logger{0}: %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.icthh.xm" level="#logback.loglevel#"/>
+
+    <logger name="io.github.jhipster" level="#logback.loglevel#"/>
 
     <logger name="javax.activation" level="WARN"/>
     <logger name="javax.mail" level="WARN"/>
@@ -40,5 +48,9 @@
     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
         <resetJUL>true</resetJUL>
     </contextListener>
+
+    <root level="#logback.loglevel#">
+        <appender-ref ref="STDOUT"/>
+    </root>
 
 </configuration>

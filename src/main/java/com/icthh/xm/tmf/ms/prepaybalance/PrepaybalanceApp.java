@@ -12,12 +12,16 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.core.env.Environment;
 
 @SpringBootApplication(scanBasePackages = {"com.icthh.xm", "com.icthh.xm.tmf.ms.prepaybalance"})
 @EnableConfigurationProperties({ApplicationProperties.class})
+@EnableAutoConfiguration
 public class PrepaybalanceApp {
 
     private static final Logger log = LoggerFactory.getLogger(PrepaybalanceApp.class);

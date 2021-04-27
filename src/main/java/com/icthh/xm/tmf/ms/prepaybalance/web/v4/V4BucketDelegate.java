@@ -2,6 +2,7 @@ package com.icthh.xm.tmf.ms.prepaybalance.web.v4;
 
 import com.icthh.xm.commons.lep.LogicExtensionPoint;
 import com.icthh.xm.commons.lep.spring.LepService;
+import com.icthh.xm.commons.logging.LoggingAspectConfig;
 import com.icthh.xm.commons.permission.annotation.PrivilegeDescription;
 import com.icthh.xm.tmf.ms.prepaybalance.lep.keyresolver.ProfileKeyResolver;
 import com.icthh.xm.tmf.ms.prepaybalance.web.v4.api.model.Bucket;
@@ -18,6 +19,7 @@ public class V4BucketDelegate implements V4BucketApiDelegate {
 
     @Timed
     @Override
+    @LoggingAspectConfig(resultCollectionAware = false)
     @LogicExtensionPoint(value = "ListBucket", resolver = ProfileKeyResolver.class)
     @PrivilegeDescription("Privilege to list bucket")
     @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'PREPAYBALANCE.BUCKET.LIST')")
@@ -27,6 +29,7 @@ public class V4BucketDelegate implements V4BucketApiDelegate {
 
     @Timed
     @Override
+    @LoggingAspectConfig(resultCollectionAware = false)
     @LogicExtensionPoint(value = "RetrieveBucket", resolver = ProfileKeyResolver.class)
     @PrivilegeDescription("Privilege to retrieve bucket")
     @PreAuthorize("hasPermission({'profile': @headerRequestExtractor.profile}, 'PREPAYBALANCE.BUCKET.RETRIEVE')")

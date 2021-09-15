@@ -287,6 +287,7 @@ dependencies {
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
     testCompileOnly "org.projectlombok:lombok:${lombok_version}"
     testAnnotationProcessor "org.projectlombok:lombok:${lombok_version}"
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
 }
 
 if (project.hasProperty("gae")) {

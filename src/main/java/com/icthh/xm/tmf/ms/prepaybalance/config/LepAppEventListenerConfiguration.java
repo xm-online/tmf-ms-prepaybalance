@@ -1,9 +1,8 @@
 package com.icthh.xm.tmf.ms.prepaybalance.config;
 
 import com.icthh.xm.commons.config.client.service.TenantConfigService;
-import com.icthh.xm.commons.lep.commons.CommonsService;
 import com.icthh.xm.commons.permission.service.PermissionCheckService;
-import com.icthh.xm.tmf.ms.prepaybalance.lep.XmMsLepProcessingApplicationListener;
+import com.icthh.xm.tmf.ms.prepaybalance.lep.PrepaybalanceLepContextFactory;
 import com.icthh.xm.tmf.ms.prepaybalance.service.MailService;
 import com.icthh.xm.tmf.ms.prepaybalance.service.SeparateTransactionExecutor;
 import java.util.concurrent.Executor;
@@ -21,27 +20,25 @@ import org.springframework.web.client.RestTemplate;
 public class LepAppEventListenerConfiguration {
 
     @Bean
-    XmMsLepProcessingApplicationListener buildLepProcessingApplicationListener(
+    PrepaybalanceLepContextFactory buildLepProcessingApplicationListener(
         TenantConfigService tenantConfigService,
         @Qualifier("loadBalancedRestTemplate") RestTemplate restTemplate,
-        CommonsService commonsService,
         PermissionCheckService permissionCheckService,
         KafkaTemplate<String, String> kafkaTemplate,
         JdbcTemplate jdbcTemplate,
-        SeparateTransactionExecutor transactionExecutor,
+        SeparateTransactionExecutor separateTransactionExecutor,
         @Qualifier("taskExecutor") Executor asyncExecutor,
         MailService mailService) {
 
-        return new XmMsLepProcessingApplicationListener(
+        return new PrepaybalanceLepContextFactory(
             tenantConfigService,
             restTemplate,
-            jdbcTemplate,
-            transactionExecutor,
-            commonsService,
             permissionCheckService,
+            separateTransactionExecutor,
             kafkaTemplate,
             asyncExecutor,
-            mailService);
+            mailService,
+            jdbcTemplate);
     }
 
 }

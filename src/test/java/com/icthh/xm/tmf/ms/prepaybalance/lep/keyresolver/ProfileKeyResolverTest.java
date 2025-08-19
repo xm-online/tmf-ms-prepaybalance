@@ -1,84 +1,87 @@
 package com.icthh.xm.tmf.ms.prepaybalance.lep.keyresolver;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.icthh.xm.commons.lep.XmLepConstants;
-import com.icthh.xm.commons.lep.spring.LepServiceHandler;
-import com.icthh.xm.lep.api.LepKey;
-import com.icthh.xm.lep.api.LepKeyResolver;
-import com.icthh.xm.lep.api.LepManager;
 import com.icthh.xm.lep.api.LepMethod;
-import com.icthh.xm.lep.api.Version;
-import com.icthh.xm.lep.core.CoreLepManager;
+
 import com.icthh.xm.tmf.ms.prepaybalance.utils.HeaderRequestExtractor;
-import com.icthh.xm.tmf.ms.prepaybalance.web.v2.BalanceDeductDelegate;
-import com.icthh.xm.tmf.ms.prepaybalance.web.v2.api.model.BalanceDeductRequest;
-import java.lang.reflect.Method;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.context.ApplicationContext;
-import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 @ExtendWith(SpringExtension.class)
 class ProfileKeyResolverTest {
-    private static final String PROFILE_KEY = "profile";
-    private static final String PROFILE_VALUE = "TEST-PROFILE";
-    private static final String PROFILE_VALUE_RESOLVED = "TEST_PROFILE";
+
+    private static final String GROUP_PARAMETER = "group";
+
+    @Mock
+    private HeaderRequestExtractor headerRequestExtractor;
+
+    @Mock
+    private LepMethod lepMethod;
 
     @InjectMocks
-    private LepServiceHandler lepServiceHandler;
+    private ProfileKeyResolver profileKeyResolver;
 
-    @Mock
-    private ApplicationContext applicationContext;
-
-    @Mock
-    private CoreLepManager lepManager;
-
-    @Captor
-    private ArgumentCaptor<LepKey> baseLepKey;
-
-    @Captor
-    private ArgumentCaptor<LepKeyResolver> keyResolver;
-
-    @Captor
-    private ArgumentCaptor<LepMethod> lepMethod;
-
-    @Captor
-    private ArgumentCaptor<Version> version;
+    @BeforeEach
+    void setUp() {
+        // Clean up request context before each test
+        RequestContextHolder.resetRequestAttributes();
+    }
 
     @Test
-    void shouldResolveLepByHeader() throws Throwable {
+    @DisplayName("Should return group parameter when group method is called")
+    void shouldReturnGroupParameter() {
+        // Given
+        String expectedGroup = "testGroup";
+        when(lepMethod.getParameter(GROUP_PARAMETER, String.class)).thenReturn(expectedGroup);
 
-        Method method = BalanceDeductDelegate.class.getMethod("deductBalanceAmount", BalanceDeductRequest.class);
+        // When
+        String actualGroup = profileKeyResolver.group(lepMethod);
 
-        when(applicationContext.getBean(LepManager.class)).thenReturn(lepManager);
+        // Then
+        assertEquals(expectedGroup, actualGroup);
+        verify(lepMethod).getParameter(GROUP_PARAMETER, String.class);
+    }
 
-        HeaderRequestExtractor headerRequestExtractor = new HeaderRequestExtractor();
-        ProfileKeyResolver resolver = new ProfileKeyResolver(headerRequestExtractor);
-        when(applicationContext.getBean(ProfileKeyResolver.class)).thenReturn(resolver);
 
-        MockHttpServletRequest request = new MockHttpServletRequest();
-        request.addHeader(PROFILE_KEY, PROFILE_VALUE);
-        RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
+    @Test
+    @DisplayName("Should return empty string when group parameter is empty")
+    void shouldReturnEmptyStringWhenGroupParameterIsEmpty() {
+        // Given
+        String expectedGroup = "";
+        when(lepMethod.getParameter(GROUP_PARAMETER, String.class)).thenReturn(expectedGroup);
 
-        lepServiceHandler.onMethodInvoke(BalanceDeductDelegate.class,
-            new BalanceDeductDelegate(), method, new Object[]{null});
+        // When
+        String actualGroup = profileKeyResolver.group(lepMethod);
 
-        verify(lepManager)
-            .processLep(baseLepKey.capture(), version.capture(), keyResolver.capture(), lepMethod.capture());
+        // Then
+        assertEquals(expectedGroup, actualGroup);
+        verify(lepMethod).getParameter(GROUP_PARAMETER, String.class);
+    }
 
-        LepKey resolvedKey = resolver.resolve(baseLepKey.getValue(), lepMethod.getValue(), null);
+    @Test
+    @DisplayName("Should return list with profile when segments method is called")
+    void shouldReturnListWithProfile() {
+        // Given
+        String expectedProfile = "testProfile";
+        when(headerRequestExtractor.getProfile()).thenReturn(expectedProfile);
 
-        assertEquals(
-            String.join(XmLepConstants.EXTENSION_KEY_SEPARATOR,
-                "service", "PrepayBalanceDeduct", PROFILE_VALUE_RESOLVED), resolvedKey.getId());
+        // When
+        List<String> actualSegments = profileKeyResolver.segments(lepMethod);
+
+        // Then
+        assertNotNull(actualSegments);
+        assertEquals(1, actualSegments.size());
+        assertEquals(expectedProfile, actualSegments.get(0));
+        verify(headerRequestExtractor).getProfile();
     }
 }

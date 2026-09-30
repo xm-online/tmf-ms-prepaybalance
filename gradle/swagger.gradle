@@ -15,9 +15,13 @@ apply plugin: "org.openapi.generator"
 
 import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
-// generator 7 with the Boot 3+/Jakarta templates
+// generator 7 with the Boot 3+/Jakarta templates. Options that keep the JSON of the 4.x generator:
+// - generatedConstructorWithRequiredArgs: Jackson 3 deserializes through a required-args constructor, so
+//   absent fields became null instead of the model defaults, and constructor properties were written first
+// - containerDefaultToNull: generator 7 initializes optional collections with an empty list, 4.x left them null
 Map<String, String> commonConfigOptions = [delegatePattern: "true", title: "hub", useSpringBoot3: "true",
-                                           useJakartaEe: "true"]
+                                           useJakartaEe: "true", generatedConstructorWithRequiredArgs: "false",
+                                           containerDefaultToNull: "true"]
 
 tasks.register("openApiGenerateV2", GenerateTask) {
     generatorName = "spring"
@@ -46,6 +50,8 @@ tasks.register("openApiGenerateV4", GenerateTask) {
     validateSpec = true
     importMappings = [Problem: "org.zalando.problem.Problem"]
     additionalProperties = [useTags: "true"]
+    // the 4.x generator named this constant ONETIME, generator 7 would name it ONE_TIME (LEP scripts may use it)
+    enumNameMappings = [oneTime: "ONETIME"]
 }
 
 sourceSets {
@@ -53,6 +59,32 @@ sourceSets {
         java {
             srcDir file(layout.buildDirectory.dir("openapi/src/main/java").get().asFile)
         }
+    }
+}
+
+// containerDefaultToNull also leaves required collections null, while the 4.x generator initialized them with
+// an empty list (AccumulatedBalance.bucket/product, BucketBalance.product): keep `= new ArrayList<>()` for them,
+// so a response built by a LEP still writes [] and getXxx().add(..) keeps working
+void initRequiredCollections(File outputDir) {
+    fileTree(outputDir) { include "**/model/*.java" }.each { File file ->
+        String text = file.text
+        def required = (text =~ /@NotNull[^\n]*\n(?:\s*@[^\n]*\n)*\s*public (?:List|Set)<[^\n]*> get(\w+)\(\)/).collect { it[1] }
+        String patched = text
+        required.each { String prop ->
+            String field = prop.substring(0, 1).toLowerCase() + prop.substring(1)
+            patched = patched.replaceFirst(/(private (List|Set)<[^;\n]+> ${field});/) { all, decl, kind ->
+                "${decl} = new ${kind == 'Set' ? 'LinkedHashSet' : 'ArrayList'}<>();"
+            }
+        }
+        if (patched != text) {
+            file.text = patched
+        }
+    }
+}
+
+["openApiGenerateV2", "openApiGenerateV4"].each { taskName ->
+    tasks.named(taskName) {
+        doLast { initRequiredCollections(layout.buildDirectory.dir("openapi/src/main/java").get().asFile) }
     }
 }
 

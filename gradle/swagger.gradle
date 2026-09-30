@@ -4,37 +4,45 @@
  */
 buildscript {
     repositories {
-        maven { url "https://plugins.gradle.org/m2/" }
+        gradlePluginPortal()
+        mavenCentral()
     }
     dependencies {
-        classpath "org.openapitools:openapi-generator-gradle-plugin:${openapi_plugin_version}"
+        classpath "org.openapitools:openapi-generator-gradle-plugin:${openapiPluginVersion}"
     }
 }
+apply plugin: "org.openapi.generator"
 
-task openApiGenerateV2(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+// generator 7 with the Boot 3+/Jakarta templates
+Map<String, String> commonConfigOptions = [delegatePattern: "true", title: "hub", useSpringBoot3: "true",
+                                           useJakartaEe: "true"]
+
+tasks.register("openApiGenerateV2", GenerateTask) {
     generatorName = "spring"
     inputSpec = "$rootDir/src/main/resources/swagger/api.yml".toString()
-    outputDir = "$buildDir/openapi".toString()
+    outputDir = layout.buildDirectory.dir("openapi").get().asFile.toString()
     apiPackage = "com.icthh.xm.tmf.ms.prepaybalance.web.v2.api"
     modelPackage = "com.icthh.xm.tmf.ms.prepaybalance.web.v2.api.model"
     apiFilesConstrainedTo = [""]
     modelFilesConstrainedTo = [""]
     supportingFilesConstrainedTo = ["ApiUtil.java"]
-    configOptions = [delegatePattern: "true", title: "hub"]
+    configOptions = commonConfigOptions
     validateSpec = true
     importMappings = [Problem: "org.zalando.problem.Problem"]
 }
 
-task openApiGenerateV4(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+tasks.register("openApiGenerateV4", GenerateTask) {
     generatorName = "spring"
     inputSpec = "$rootDir/src/main/resources/swagger/apiv4.yml".toString()
-    outputDir = "$buildDir/openapi".toString()
+    outputDir = layout.buildDirectory.dir("openapi").get().asFile.toString()
     apiPackage = "com.icthh.xm.tmf.ms.prepaybalance.web.v4.api"
     modelPackage = "com.icthh.xm.tmf.ms.prepaybalance.web.v4.api.model"
     apiFilesConstrainedTo = [""]
     modelFilesConstrainedTo = [""]
     supportingFilesConstrainedTo = ["ApiUtil.java"]
-    configOptions = [delegatePattern: "true", title: "hub"]
+    configOptions = commonConfigOptions
     validateSpec = true
     importMappings = [Problem: "org.zalando.problem.Problem"]
     additionalProperties = [useTags: "true"]
@@ -43,9 +51,9 @@ task openApiGenerateV4(type: org.openapitools.generator.gradle.plugin.tasks.Gene
 sourceSets {
     main {
         java {
-            srcDir file("${project.buildDir.path}/openapi/src/main/java")
+            srcDir file(layout.buildDirectory.dir("openapi/src/main/java").get().asFile)
         }
     }
 }
 
-compileJava.dependsOn openApiGenerateV2, openApiGenerateV4
+compileJava.dependsOn("openApiGenerateV2", "openApiGenerateV4")

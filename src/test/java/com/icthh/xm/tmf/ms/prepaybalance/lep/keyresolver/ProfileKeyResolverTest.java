@@ -1,7 +1,7 @@
 package com.icthh.xm.tmf.ms.prepaybalance.lep.keyresolver;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import com.icthh.xm.lep.api.LepMethod;
@@ -14,10 +14,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.context.request.RequestContextHolder;
 
-@ExtendWith(SpringExtension.class)
+// Spring 7 no longer initializes @Mock fields in SpringExtension tests (MockitoTestExecutionListener is gone)
+@ExtendWith(MockitoExtension.class)
 class ProfileKeyResolverTest {
 
     private static final String GROUP_PARAMETER = "group";

@@ -1,11 +1,12 @@
 package com.icthh.xm.tmf.ms.prepaybalance.config;
 
-import org.springframework.cloud.client.loadbalancer.RestTemplateCustomizer;
+import static com.icthh.xm.commons.config.client.config.XmRestTemplateConfiguration.XM_CONFIG_REST_TEMPLATE;
+import static org.mockito.Mockito.mock;
+
+import com.icthh.xm.commons.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -17,19 +18,18 @@ public class SecurityBeanOverrideConfiguration {
 
     @Bean
     @Primary
-    public TokenStore tokenStore() {
-        return null;
+    public TokenProvider tokenProvider() {
+        return mock(TokenProvider.class);
     }
 
     @Bean
     @Primary
-    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-        return null;
+    public RestTemplate loadBalancedRestTemplate() {
+        return mock(RestTemplate.class);
     }
 
-    @Bean
-    @Primary
-    public RestTemplate loadBalancedRestTemplate(RestTemplateCustomizer customizer) {
-        return null;
+    @Bean(XM_CONFIG_REST_TEMPLATE)
+    public RestTemplate xmConfigRestTemplate() {
+        return mock(RestTemplate.class);
     }
 }

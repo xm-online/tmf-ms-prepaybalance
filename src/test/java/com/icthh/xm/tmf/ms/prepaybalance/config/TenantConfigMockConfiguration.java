@@ -4,8 +4,10 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import com.icthh.xm.commons.config.client.repository.CommonConfigRepository;
 import com.icthh.xm.commons.config.client.repository.TenantConfigRepository;
 import com.icthh.xm.commons.config.client.repository.TenantListRepository;
+import com.icthh.xm.commons.config.client.service.TenantAliasService;
 import com.icthh.xm.commons.config.client.service.TenantConfigService;
 import java.util.Collections;
 import java.util.Set;
@@ -40,5 +42,15 @@ public class TenantConfigMockConfiguration {
     @Bean
     public TenantConfigService tenantConfigService() {
         return mock(TenantConfigService.class);
+    }
+
+    @Bean
+    public CommonConfigRepository commonConfigRepository() {
+        return mock(CommonConfigRepository.class);
+    }
+
+    @Bean
+    public TenantAliasService testTenantAliasService() {
+        return mock(TenantAliasService.class);
     }
 }

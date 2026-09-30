@@ -3,7 +3,7 @@ package com.icthh.xm.tmf.ms.prepaybalance.service;
 import com.icthh.xm.commons.mail.provider.MailProviderService;
 import com.icthh.xm.commons.tenant.TenantContextHolder;
 import java.nio.charset.StandardCharsets;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.javamail.JavaMailSender;

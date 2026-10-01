@@ -1,9 +1,10 @@
 package com.icthh.xm.tmf.ms.prepaybalance.lep.keyresolver;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import com.icthh.xm.commons.lep.api.LepBaseKey;
 import com.icthh.xm.lep.api.LepMethod;
 
 import com.icthh.xm.tmf.ms.prepaybalance.utils.HeaderRequestExtractor;
@@ -14,19 +15,21 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.context.request.RequestContextHolder;
 
-@ExtendWith(SpringExtension.class)
+// Spring 7 no longer initializes @Mock fields in SpringExtension tests (MockitoTestExecutionListener is gone)
+@ExtendWith(MockitoExtension.class)
 class ProfileKeyResolverTest {
-
-    private static final String GROUP_PARAMETER = "group";
 
     @Mock
     private HeaderRequestExtractor headerRequestExtractor;
 
     @Mock
     private LepMethod lepMethod;
+
+    @Mock
+    private LepBaseKey lepBaseKey;
 
     @InjectMocks
     private ProfileKeyResolver profileKeyResolver;
@@ -37,35 +40,39 @@ class ProfileKeyResolverTest {
         RequestContextHolder.resetRequestAttributes();
     }
 
+    // ProfileKeyResolver keeps the xm-commons default group(): the group of the LEP base key. These two tests used to
+    // stub lepMethod.getParameter("group", String.class), which that default never read, and failed on master too
     @Test
-    @DisplayName("Should return group parameter when group method is called")
+    @DisplayName("Should return group of the LEP base key when group method is called")
     void shouldReturnGroupParameter() {
         // Given
         String expectedGroup = "testGroup";
-        when(lepMethod.getParameter(GROUP_PARAMETER, String.class)).thenReturn(expectedGroup);
+        when(lepMethod.getLepBaseKey()).thenReturn(lepBaseKey);
+        when(lepBaseKey.getGroup()).thenReturn(expectedGroup);
 
         // When
         String actualGroup = profileKeyResolver.group(lepMethod);
 
         // Then
         assertEquals(expectedGroup, actualGroup);
-        verify(lepMethod).getParameter(GROUP_PARAMETER, String.class);
+        verify(lepBaseKey).getGroup();
     }
 
 
     @Test
-    @DisplayName("Should return empty string when group parameter is empty")
+    @DisplayName("Should return empty string when group of the LEP base key is empty")
     void shouldReturnEmptyStringWhenGroupParameterIsEmpty() {
         // Given
         String expectedGroup = "";
-        when(lepMethod.getParameter(GROUP_PARAMETER, String.class)).thenReturn(expectedGroup);
+        when(lepMethod.getLepBaseKey()).thenReturn(lepBaseKey);
+        when(lepBaseKey.getGroup()).thenReturn(expectedGroup);
 
         // When
         String actualGroup = profileKeyResolver.group(lepMethod);
 
         // Then
         assertEquals(expectedGroup, actualGroup);
-        verify(lepMethod).getParameter(GROUP_PARAMETER, String.class);
+        verify(lepBaseKey).getGroup();
     }
 
     @Test

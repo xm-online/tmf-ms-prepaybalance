@@ -1,6 +1,6 @@
 package com.icthh.xm.tmf.ms.prepaybalance.aop.logging;
 
-import io.github.jhipster.config.JHipsterConstants;
+import tech.jhipster.config.JHipsterConstants;
 import java.util.Arrays;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;

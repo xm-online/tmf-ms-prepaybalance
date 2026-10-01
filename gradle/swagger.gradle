@@ -4,48 +4,88 @@
  */
 buildscript {
     repositories {
-        maven { url "https://plugins.gradle.org/m2/" }
+        gradlePluginPortal()
+        mavenCentral()
     }
     dependencies {
-        classpath "org.openapitools:openapi-generator-gradle-plugin:${openapi_plugin_version}"
+        classpath "org.openapitools:openapi-generator-gradle-plugin:${openapiPluginVersion}"
     }
 }
+apply plugin: "org.openapi.generator"
 
-task openApiGenerateV2(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+// generator 7 with the Boot 3+/Jakarta templates. Options that keep the JSON of the 4.x generator:
+// - generatedConstructorWithRequiredArgs: Jackson 3 deserializes through a required-args constructor, so
+//   absent fields became null instead of the model defaults, and constructor properties were written first
+// - containerDefaultToNull: generator 7 initializes optional collections with an empty list, 4.x left them null
+Map<String, String> commonConfigOptions = [delegatePattern: "true", title: "hub", useSpringBoot3: "true",
+                                           useJakartaEe: "true", generatedConstructorWithRequiredArgs: "false",
+                                           containerDefaultToNull: "true"]
+
+tasks.register("openApiGenerateV2", GenerateTask) {
     generatorName = "spring"
     inputSpec = "$rootDir/src/main/resources/swagger/api.yml".toString()
-    outputDir = "$buildDir/openapi".toString()
+    outputDir = layout.buildDirectory.dir("openapi").get().asFile.toString()
     apiPackage = "com.icthh.xm.tmf.ms.prepaybalance.web.v2.api"
     modelPackage = "com.icthh.xm.tmf.ms.prepaybalance.web.v2.api.model"
     apiFilesConstrainedTo = [""]
     modelFilesConstrainedTo = [""]
     supportingFilesConstrainedTo = ["ApiUtil.java"]
-    configOptions = [delegatePattern: "true", title: "hub"]
+    configOptions = commonConfigOptions
     validateSpec = true
     importMappings = [Problem: "org.zalando.problem.Problem"]
 }
 
-task openApiGenerateV4(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask) {
+tasks.register("openApiGenerateV4", GenerateTask) {
     generatorName = "spring"
     inputSpec = "$rootDir/src/main/resources/swagger/apiv4.yml".toString()
-    outputDir = "$buildDir/openapi".toString()
+    outputDir = layout.buildDirectory.dir("openapi").get().asFile.toString()
     apiPackage = "com.icthh.xm.tmf.ms.prepaybalance.web.v4.api"
     modelPackage = "com.icthh.xm.tmf.ms.prepaybalance.web.v4.api.model"
     apiFilesConstrainedTo = [""]
     modelFilesConstrainedTo = [""]
     supportingFilesConstrainedTo = ["ApiUtil.java"]
-    configOptions = [delegatePattern: "true", title: "hub"]
+    configOptions = commonConfigOptions
     validateSpec = true
     importMappings = [Problem: "org.zalando.problem.Problem"]
     additionalProperties = [useTags: "true"]
+    // the 4.x generator named this constant ONETIME, generator 7 would name it ONE_TIME (LEP scripts may use it)
+    enumNameMappings = [oneTime: "ONETIME"]
 }
 
 sourceSets {
     main {
         java {
-            srcDir file("${project.buildDir.path}/openapi/src/main/java")
+            srcDir file(layout.buildDirectory.dir("openapi/src/main/java").get().asFile)
         }
     }
 }
 
-compileJava.dependsOn openApiGenerateV2, openApiGenerateV4
+// containerDefaultToNull also leaves required collections null, while the 4.x generator initialized them with
+// an empty list (AccumulatedBalance.bucket/product, BucketBalance.product): keep `= new ArrayList<>()` for them,
+// so a response built by a LEP still writes [] and getXxx().add(..) keeps working
+void initRequiredCollections(File outputDir) {
+    fileTree(outputDir) { include "**/model/*.java" }.each { File file ->
+        String text = file.text
+        def required = (text =~ /@NotNull[^\n]*\n(?:\s*@[^\n]*\n)*\s*public (?:List|Set)<[^\n]*> get(\w+)\(\)/).collect { it[1] }
+        String patched = text
+        required.each { String prop ->
+            String field = prop.substring(0, 1).toLowerCase() + prop.substring(1)
+            patched = patched.replaceFirst(/(private (List|Set)<[^;\n]+> ${field});/) { all, decl, kind ->
+                "${decl} = new ${kind == 'Set' ? 'LinkedHashSet' : 'ArrayList'}<>();"
+            }
+        }
+        if (patched != text) {
+            file.text = patched
+        }
+    }
+}
+
+["openApiGenerateV2", "openApiGenerateV4"].each { taskName ->
+    tasks.named(taskName) {
+        doLast { initRequiredCollections(layout.buildDirectory.dir("openapi/src/main/java").get().asFile) }
+    }
+}
+
+compileJava.dependsOn("openApiGenerateV2", "openApiGenerateV4")

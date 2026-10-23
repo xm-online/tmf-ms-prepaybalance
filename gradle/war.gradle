@@ -1,7 +1,7 @@
 apply plugin: "war"
 
 bootWar {
-    mainClassName = "com.icthh.xm.tmf.ms.prepaybalance.PrepaybalanceApp"
+    mainClass = "com.icthh.xm.tmf.ms.prepaybalance.PrepaybalanceApp"
     includes = ["WEB-INF/**", "META-INF/**"]
 }
 

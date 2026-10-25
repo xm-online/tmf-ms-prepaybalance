@@ -1,7 +1,7 @@
 package com.icthh.xm.tmf.ms.prepaybalance.config;
 
-import io.github.jhipster.config.JHipsterConstants;
-import io.github.jhipster.config.h2.H2ConfigurationHelper;
+import tech.jhipster.config.JHipsterConstants;
+import tech.jhipster.config.h2.H2ConfigurationHelper;
 import java.sql.SQLException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

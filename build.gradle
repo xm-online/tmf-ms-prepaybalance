@@ -61,7 +61,7 @@ dependencyManagement {
 }
 
 group = "com.icthh.xm.tmf.ms.prepaybalance"
-version = "5.0.0"
+version = "5.1.0"
 
 description = ""
 
@@ -237,6 +237,7 @@ dependencies {
     implementation "org.apache.commons:commons-lang3"
     implementation "commons-io:commons-io"
     implementation "org.apache.httpcomponents.client5:httpclient5"
+    implementation "org.springframework.boot:spring-boot-starter-kafka"
     implementation "org.springframework.kafka:spring-kafka"
     implementation "org.apache.kafka:kafka-clients"
 
